@@ -1,0 +1,2757 @@
+[
+  {
+    "name": "Perito Moreno Glacier, Argentina",
+    "lat": -50.4967,
+    "lng": -73.1375
+  },
+  {
+    "name": "Patagonia, Argentina",
+    "lat": -41.8101,
+    "lng": -68.9063
+  },
+  {
+    "name": "Great Barrier Reef, Australia",
+    "lat": -18.2871,
+    "lng": 147.6992
+  },
+  {
+    "name": "Whitehaven Beach, Australia",
+    "lat": -20.2820,
+    "lng": 149.0380
+  },
+  {
+    "name": "Kakadu National Park, Australia",
+    "lat": -12.7200,
+    "lng": 132.5300
+  },
+  {
+    "name": "Sydney Harbour Bridge, Australia",
+    "lat": -33.8523,
+    "lng": 151.2108
+  },
+  {
+    "name": "Twelve Apostles, Australia",
+    "lat": -38.6655,
+    "lng": 143.1046
+  },
+  {
+    "name": "Olpererhütte, Austria",
+    "lat": 47.0933,
+    "lng": 11.6486
+  },
+  {
+    "name": "Lake Altaussee, Austria",
+    "lat": 47.6364,
+    "lng": 13.7639
+  },
+  {
+    "name": "Grossglockner High Alpine Road, Austria",
+    "lat": 47.0833,
+    "lng": 12.8333
+  },
+  {
+    "name": "Tiger’s Nest Monastery, Bhutan",
+    "lat": 27.4918,
+    "lng": 89.3634
+  },
+  {
+    "name": "Salar de Uyuni, Bolivia",
+    "lat": -20.1338,
+    "lng": -67.4891
+  },
+  {
+    "name": "Fernando de Noronha, Brazil",
+    "lat": -3.8547,
+    "lng": -32.4233
+  },
+  {
+    "name": "Lençóis Maranhenses National Park, Brazil",
+    "lat": -2.5333,
+    "lng": -43.1167
+  },
+  {
+    "name": "Iguazu Falls, Argentina/Brazil",
+    "lat": -25.6953,
+    "lng": -54.4367
+  },
+  {
+    "name": "Vancouver Island, Canada",
+    "lat": 49.6500,
+    "lng": -125.4500
+  },
+  {
+    "name": "Atacama Desert, Chile",
+    "lat": -24.5000,
+    "lng": -69.2500
+  },
+  {
+    "name": "Easter Island, Chile",
+    "lat": -27.1127,
+    "lng": -109.3497
+  },
+  {
+    "name": "El Tatio Geysers, Chile",
+    "lat": -22.3333,
+    "lng": -68.0000
+  },
+  {
+    "name": "Ping’an Village, China",
+    "lat": 25.7989,
+    "lng": 110.2056
+  },
+  {
+    "name": "Wulingyuan Scenic Area, China",
+    "lat": 29.3475,
+    "lng": 110.5411
+  },
+  {
+    "name": "Zhangye Danxia Landform, China",
+    "lat": 38.9170,
+    "lng": 100.3061
+  },
+  {
+    "name": "Houtouwan, China",
+    "lat": 30.7291,
+    "lng": 122.0064
+  },
+  {
+    "name": "Guoliang Village, China",
+    "lat": 35.7289,
+    "lng": 113.6111
+  },
+  {
+    "name": "Li River, China",
+    "lat": 25.2736,
+    "lng": 110.2900
+  },
+  {
+    "name": "Zhangye National Geopark, China",
+    "lat": 38.9680,
+    "lng": 100.2910
+  },
+  {
+    "name": "Rainbow Mountains, China",
+    "lat": 38.9690,
+    "lng": 100.2930
+  },
+  {
+    "name": "Maroon Bells, Colorado, USA",
+    "lat": 39.0700,
+    "lng": -106.9890
+  },
+  {
+    "name": "Odysseus Cave, Croatia",
+    "lat": 42.7811,
+    "lng": 16.8319
+  },
+  {
+    "name": "Vela Spila Cave, Croatia",
+    "lat": 42.9608,
+    "lng": 17.1294
+  },
+  {
+    "name": "Havana, Cuba",
+    "lat": 23.1136,
+    "lng": -82.3666
+  },
+  {
+    "name": "Trinidad, Cuba",
+    "lat": 21.8044,
+    "lng": -79.9849
+  },
+  {
+    "name": "Prague, Czech Republic",
+    "lat": 50.0755,
+    "lng": 14.4378
+  },
+  {
+    "name": "Samsø Labyrinten, Denmark",
+    "lat": 55.8667,
+    "lng": 10.6000
+  },
+  {
+    "name": "Abu Simbel, Egypt",
+    "lat": 22.3372,
+    "lng": 31.6258
+  },
+  {
+    "name": "White Desert, Egypt",
+    "lat": 27.2500,
+    "lng": 28.0833
+  },
+  {
+    "name": "Gásadalur Village, Faroe Islands",
+    "lat": 62.1100,
+    "lng": -7.4167
+  },
+  {
+    "name": "Åland Islands, Finland",
+    "lat": 60.1785,
+    "lng": 19.9156
+  },
+  {
+    "name": "Gorges du Verdon, France",
+    "lat": 43.7370,
+    "lng": 6.3630
+  },
+  {
+    "name": "Côte de Granit Rose, France",
+    "lat": 48.8333,
+    "lng": -3.4833
+  },
+  {
+    "name": "Berlin, Germany",
+    "lat": 52.5200,
+    "lng": 13.4050
+  },
+  {
+    "name": "Paris, France",
+    "lat": 48.8566,
+    "lng": 2.3522
+  },
+  {
+    "name": "Thethi",
+    "lat": 32.4127,
+    "lng": -90.9715
+  },
+  {
+    "name": "Constantine",
+    "lat": -49.597,
+    "lng": -157.0272
+  },
+  {
+    "name": "VILLA LA ANGOSTURA",
+    "lat": -37.7878,
+    "lng": 23.8917
+  },
+  {
+    "name": "Perito Moreno Glacier",
+    "lat": -28.6758,
+    "lng": 154.0679
+  },
+  {
+    "name": "Iruya",
+    "lat": 1.7509,
+    "lng": -48.8445
+  },
+  {
+    "name": "Patagonia",
+    "lat": -41.8101,
+    "lng": -68.9063
+  },
+  {
+    "name": "The Great Barrier Reef and Whitehaven Beach",
+    "lat": -18.2871,
+    "lng": 147.6992
+  },
+  {
+    "name": "Kakadu National Park",
+    "lat": -13.0889,
+    "lng": 132.5578
+  },
+  {
+    "name": "Sydney Harbour Bridge",
+    "lat": -33.8523,
+    "lng": 151.2108
+  },
+  {
+    "name": "Great Barrier Reef",
+    "lat": -18.2871,
+    "lng": 147.6992
+  },
+  {
+    "name": "Port Douglas",
+    "lat": -16.4834,
+    "lng": 145.4652
+  },
+  {
+    "name": "Twelve Apostles",
+    "lat": -38.6621,
+    "lng": 143.1051
+  },
+  {
+    "name": "Olpererhütte",
+    "lat": 47.0406,
+    "lng": 11.6987
+  },
+  {
+    "name": "Lake Altaussee",
+    "lat": 47.6436,
+    "lng": 13.7914
+  },
+  {
+    "name": "Grossglockner High Alpine Road",
+    "lat": 47.0744,
+    "lng": 12.7438
+  },
+  {
+    "name": "Bruges",
+    "lat": 51.2093,
+    "lng": 3.2247
+  },
+  {
+    "name": "Caye Caulker",
+    "lat": 17.7612,
+    "lng": -88.0277
+  },
+  {
+    "name": "Paro",
+    "lat": 27.4294,
+    "lng": 89.4171
+  },
+  {
+    "name": "Tiger's Nest",
+    "lat": 27.4921,
+    "lng": 89.3634
+  },
+  {
+    "name": "Tiger's Nest",
+    "lat": 27.4921,
+    "lng": 89.3634
+  },
+  {
+    "name": "Laguna Colorada",
+    "lat": -22.2006,
+    "lng": -67.7692
+  },
+  {
+    "name": "Salar de Uyuni",
+    "lat": -20.1338,
+    "lng": -67.4891
+  },
+  {
+    "name": "Salar de Uyuni salt flats",
+    "lat": -20.1338,
+    "lng": -67.4891
+  },
+  {
+    "name": "Tiwanaku",
+    "lat": -16.5542,
+    "lng": -68.6732
+  },
+  {
+    "name": "Sandakan",
+    "lat": 5.8402,
+    "lng": 118.1179
+  },
+  {
+    "name": "Jajce",
+    "lat": 44.3427,
+    "lng": 17.2683
+  },
+  {
+    "name": "Fernando de Noronha",
+    "lat": -3.8548,
+    "lng": -32.4241
+  },
+  {
+    "name": "Ipanema Beach",
+    "lat": -22.9866,
+    "lng": -43.2205
+  },
+  {
+    "name": "Lençóis Maranhenses",
+    "lat": -2.4855,
+    "lng": -43.1219
+  },
+  {
+    "name": "Igazu Falls",
+    "lat": -25.6953,
+    "lng": -54.4367
+  },
+  {
+    "name": "Veliko Tarnovo",
+    "lat": 43.0757,
+    "lng": 25.6172
+  },
+  {
+    "name": "Elora",
+    "lat": 43.6791,
+    "lng": -80.4306
+  },
+  {
+    "name": "Vancouver Island",
+    "lat": 49.6817,
+    "lng": -125.4461
+  },
+  {
+    "name": "Lake Louise",
+    "lat": 51.4254,
+    "lng": -116.1773
+  },
+  {
+    "name": "Lunenburg",
+    "lat": 44.3775,
+    "lng": -64.3088
+  },
+  {
+    "name": "Niagara-on-the-Lake",
+    "lat": 43.2555,
+    "lng": -79.0717
+  },
+  {
+    "name": "Mont Tremblant",
+    "lat": 46.1184,
+    "lng": -74.5961
+  },
+  {
+    "name": "Atacama Desert",
+    "lat": -24.5,
+    "lng": -69.25
+  },
+  {
+    "name": "Easter Island",
+    "lat": -27.1127,
+    "lng": -109.3497
+  },
+  {
+    "name": "Torres del Paine",
+    "lat": -51.1414,
+    "lng": -73.0517
+  },
+  {
+    "name": "El Tatio geysers",
+    "lat": -22.3477,
+    "lng": -68.0139
+  },
+  {
+    "name": "Ancud",
+    "lat": -41.8674,
+    "lng": -73.8276
+  },
+  {
+    "name": "Ping'an Village",
+    "lat": 25.7582,
+    "lng": 110.1936
+  },
+  {
+    "name": "Fenghuang Ancient Town",
+    "lat": 27.9432,
+    "lng": 109.6092
+  },
+  {
+    "name": "Wulingyuan Scenic Area",
+    "lat": 29.3249,
+    "lng": 110.4343
+  },
+  {
+    "name": "Zhangye Danxia Landform",
+    "lat": 38.9456,
+    "lng": 100.1367
+  },
+  {
+    "name": "Houtouwan",
+    "lat": 30.8499,
+    "lng": 122.6979
+  },
+  {
+    "name": "Great Wall",
+    "lat": 40.4319,
+    "lng": 116.5704
+  },
+  {
+    "name": "Guoliang Village",
+    "lat": 35.9768,
+    "lng": 113.3342
+  },
+  {
+    "name": "Li River",
+    "lat": 25.227,
+    "lng": 110.1791
+  },
+  {
+    "name": "Zhangjiajie National Forest",
+    "lat": 29.3255,
+    "lng": 110.4344
+  },
+  {
+    "name": "Zhangye National Geopark",
+    "lat": 38.9456,
+    "lng": 100.1367
+  },
+  {
+    "name": "Rainbow mountains",
+    "lat": 38.9147,
+    "lng": 100.1372
+  },
+  {
+    "name": "Barichara",
+    "lat": 6.6346,
+    "lng": -73.2244
+  },
+  {
+    "name": "Cartagena",
+    "lat": 10.3932,
+    "lng": -75.4832
+  },
+  {
+    "name": "Ráquira",
+    "lat": 5.5358,
+    "lng": -73.6335
+  },
+  {
+    "name": "The Maroon Bells",
+    "lat": 39.0708,
+    "lng": -106.9891
+  },
+  {
+    "name": "St Ives",
+    "lat": 50.2124,
+    "lng": -5.4808
+  },
+  {
+    "name": "Monteverde",
+    "lat": 10.3009,
+    "lng": -84.809
+  },
+  {
+    "name": "Odysseus cave",
+    "lat": 42.7603,
+    "lng": 17.9738
+  },
+  {
+    "name": "Trogir",
+    "lat": 43.516,
+    "lng": 16.2501
+  },
+  {
+    "name": "Pazin",
+    "lat": 45.2397,
+    "lng": 13.9365
+  },
+  {
+    "name": "Vela Spila cave",
+    "lat": 42.9617,
+    "lng": 16.7218
+  },
+  {
+    "name": "Hvar",
+    "lat": 43.1729,
+    "lng": 16.4412
+  },
+  {
+    "name": "Havana",
+    "lat": 23.1136,
+    "lng": -82.3666
+  },
+  {
+    "name": "Trinidad",
+    "lat": 21.8028,
+    "lng": -79.9817
+  },
+  {
+    "name": "Willemstad",
+    "lat": 12.1091,
+    "lng": -68.9316
+  },
+  {
+    "name": "Český Krumlov",
+    "lat": 48.8127,
+    "lng": 14.3175
+  },
+  {
+    "name": "Prague",
+    "lat": 50.0755,
+    "lng": 14.4378
+  },
+  {
+    "name": "Znojmo",
+    "lat": 48.8556,
+    "lng": 16.0488
+  },
+  {
+    "name": "Český Krumlov",
+    "lat": 48.8127,
+    "lng": 14.3175
+  },
+  {
+    "name": "Samsø Labyrinten",
+    "lat": 55.8883,
+    "lng": 10.5975
+  },
+  {
+    "name": "Pailón del Diablo",
+    "lat": -1.4039,
+    "lng": -78.2926
+  },
+  {
+    "name": "Abu Simbel",
+    "lat": 22.3372,
+    "lng": 31.6257
+  },
+  {
+    "name": "White Desert",
+    "lat": 27.3762,
+    "lng": 28.0291
+  },
+  {
+    "name": "Rye",
+    "lat": 50.95,
+    "lng": 0.7333
+  },
+  {
+    "name": "Port Isaac",
+    "lat": 50.5937,
+    "lng": -4.8323
+  },
+  {
+    "name": "Gásadalur Village",
+    "lat": 62.1075,
+    "lng": -7.4226
+  },
+  {
+    "name": "Gásadalur",
+    "lat": 62.1075,
+    "lng": -7.4226
+  },
+  {
+    "name": "Åland islands",
+    "lat": 60.1954,
+    "lng": 20.2461
+  },
+  {
+    "name": "Simiane La Rotonde",
+    "lat": 43.9972,
+    "lng": 5.5612
+  },
+  {
+    "name": "Gorges du Verdon",
+    "lat": 43.7552,
+    "lng": 6.3272
+  },
+  {
+    "name": "Volcans d'Auvergne",
+    "lat": 45.7758,
+    "lng": 2.9619
+  },
+  {
+    "name": "Côte de Granit Rose",
+    "lat": 48.8278,
+    "lng": -3.4839
+  },
+  {
+    "name": "Désert des Agriates",
+    "lat": 42.7,
+    "lng": 9.2167
+  },
+  {
+    "name": "Dune du Pilat",
+    "lat": 44.5862,
+    "lng": -1.1439
+  },
+  {
+    "name": "Jardins de Marqueyssac",
+    "lat": 44.8244,
+    "lng": 1.1631
+  },
+  {
+    "name": "Plateau des Mille Étangs",
+    "lat": 47.8333,
+    "lng": 6.6667
+  },
+  {
+    "name": "Calanques marseillaises",
+    "lat": 43.2167,
+    "lng": 5.4
+  },
+  {
+    "name": "Canal du Midi",
+    "lat": 43.3104,
+    "lng": 3.0383
+  },
+  {
+    "name": "Les Baux-de-Provence",
+    "lat": 43.7443,
+    "lng": 4.7958
+  },
+  {
+    "name": "Lake Annecy",
+    "lat": 45.8532,
+    "lng": 6.1743
+  },
+  {
+    "name": "Troyes",
+    "lat": 48.2971,
+    "lng": 4.0746
+  },
+  {
+    "name": "Route Napoleon",
+    "lat": 43.9342,
+    "lng": 6.0677
+  },
+  {
+    "name": "Eze",
+    "lat": 43.7284,
+    "lng": 7.3613
+  },
+  {
+    "name": "Simiane-la-Rotonde",
+    "lat": 43.9972,
+    "lng": 5.5612
+  },
+  {
+    "name": "Gordes",
+    "lat": 43.9115,
+    "lng": 5.2002
+  },
+  {
+    "name": "Saint-Cirq-Lapopie",
+    "lat": 44.4639,
+    "lng": 1.6733
+  },
+  {
+    "name": "Rocamadour",
+    "lat": 44.7992,
+    "lng": 1.6184
+  },
+  {
+    "name": "Abbey of Saint-Martin-du-Canigou",
+    "lat": 42.5841,
+    "lng": 2.3833
+  },
+  {
+    "name": "L'ile Louet",
+    "lat": 48.6797,
+    "lng": -3.9091
+  },
+  {
+    "name": "Foix",
+    "lat": 42.9643,
+    "lng": 1.6053
+  },
+  {
+    "name": "Beaune",
+    "lat": 47.0235,
+    "lng": 4.8384
+  },
+  {
+    "name": "Champs Élysées",
+    "lat": 48.8698,
+    "lng": 2.3075
+  },
+  {
+    "name": "Cliffs of Etretat",
+    "lat": 49.7076,
+    "lng": 0.2058
+  },
+  {
+    "name": "Paris",
+    "lat": 48.8566,
+    "lng": 2.3522
+  },
+  {
+    "name": "Bora Bora",
+    "lat": -16.5004,
+    "lng": -151.7415
+  },
+  {
+    "name": "Caucasus",
+    "lat": 42.5,
+    "lng": 45.0
+  },
+  {
+    "name": "Helen",
+    "lat": 34.7015,
+    "lng": -83.7316
+  },
+  {
+    "name": "Stepantsminda",
+    "lat": 42.6569,
+    "lng": 44.641
+  },
+  {
+    "name": "Adishi",
+    "lat": 42.9231,
+    "lng": 42.8453
+  },
+  {
+    "name": "Aachen",
+    "lat": 50.7753,
+    "lng": 6.0839
+  },
+  {
+    "name": "Ahrenshoop",
+    "lat": 54.3833,
+    "lng": 12.4167
+  },
+  {
+    "name": "Alsfeld",
+    "lat": 50.75,
+    "lng": 9.4
+  },
+  {
+    "name": "Altena",
+    "lat": 51.2985,
+    "lng": 7.6729
+  },
+  {
+    "name": "Augsburg",
+    "lat": 48.3705,
+    "lng": 10.8978
+  },
+  {
+    "name": "Bad Blankenburg",
+    "lat": 50.6833,
+    "lng": 11.2667
+  },
+  {
+    "name": "BAD NEUENAHR-AHRWEILER",
+    "lat": 50.5418,
+    "lng": 7.0911
+  },
+  {
+    "name": "Baden-Baden",
+    "lat": 48.7606,
+    "lng": 8.2404
+  },
+  {
+    "name": "BALDENEY LAKE",
+    "lat": 51.4,
+    "lng": 7.0167
+  },
+  {
+    "name": "Baumgartenschneid",
+    "lat": 47.677,
+    "lng": 11.756
+  },
+  {
+    "name": "Bayreuth",
+    "lat": 49.9481,
+    "lng": 11.58
+  },
+  {
+    "name": "Berchtesgaden National Park",
+    "lat": 47.5833,
+    "lng": 12.9167
+  },
+  {
+    "name": "Berlin",
+    "lat": 52.5200,
+    "lng": 13.4050
+  },
+  {
+    "name": "Binz",
+    "lat": 54.4,
+    "lng": 13.6
+  },
+  {
+    "name": "Blaubeuren",
+    "lat": 48.4189,
+    "lng": 9.7836
+  },
+  {
+    "name": "Blue Lake",
+    "lat": 48.4213,
+    "lng": 9.7856
+  },
+  {
+    "name": "Brandenburg an der Havel",
+    "lat": 52.4167,
+    "lng": 12.55
+  },
+  {
+    "name": "Bremen",
+    "lat": 53.0793,
+    "lng": 8.8017
+  },
+  {
+    "name": "Bremm",
+    "lat": 50.0964,
+    "lng": 7.1288
+  },
+  {
+    "name": "Celle",
+    "lat": 52.6231,
+    "lng": 10.0796
+  },
+  {
+    "name": "Cochem",
+    "lat": 50.15,
+    "lng": 7.1667
+  },
+  {
+    "name": "Cologne",
+    "lat": 50.9375,
+    "lng": 6.9603
+  },
+  {
+    "name": "Dachau",
+    "lat": 48.2667,
+    "lng": 11.4333
+  },
+  {
+    "name": "Dinkelsbuhl",
+    "lat": 49.0689,
+    "lng": 10.3192
+  },
+  {
+    "name": "Dresden",
+    "lat": 51.0504,
+    "lng": 13.7373
+  },
+  {
+    "name": "Eibsee lake",
+    "lat": 47.4592,
+    "lng": 11.0059
+  },
+  {
+    "name": "EIFEL NATIONAL PARK",
+    "lat": 50.5833,
+    "lng": 6.4333
+  },
+  {
+    "name": "Esslingen",
+    "lat": 48.7408,
+    "lng": 9.3177
+  },
+  {
+    "name": "Felsenmeer",
+    "lat": 49.7183,
+    "lng": 8.6725
+  },
+  {
+    "name": "Freiburger Münster",
+    "lat": 47.9956,
+    "lng": 7.8537
+  },
+  {
+    "name": "Freudenberg",
+    "lat": 51.05,
+    "lng": 7.8667
+  },
+  {
+    "name": "Friedrichstadt",
+    "lat": 54.3828,
+    "lng": 9.0914
+  },
+  {
+    "name": "Fussen",
+    "lat": 47.5706,
+    "lng": 10.6994
+  },
+  {
+    "name": "Goslar",
+    "lat": 51.9067,
+    "lng": 10.43
+  },
+  {
+    "name": "Hamburg",
+    "lat": 53.5511,
+    "lng": 9.9937
+  },
+  {
+    "name": "Harz National Park",
+    "lat": 51.7833,
+    "lng": 10.5833
+  },
+  {
+    "name": "Hattingen",
+    "lat": 51.4011,
+    "lng": 7.1848
+  },
+  {
+    "name": "Heidelberg",
+    "lat": 49.3988,
+    "lng": 8.6724
+  },
+  {
+    "name": "Jena",
+    "lat": 50.9272,
+    "lng": 11.5864
+  },
+  {
+    "name": "Königsstuhl",
+    "lat": 49.4095,
+    "lng": 8.7249
+  },
+  {
+    "name": "LANDSCHAFTSPARK + TIGER & TURTLE",
+    "lat": 51.4819,
+    "lng": 6.7731
+  },
+  {
+    "name": "Landshut",
+    "lat": 48.5392,
+    "lng": 12.1522
+  },
+  {
+    "name": "Lehde",
+    "lat": 51.8659,
+    "lng": 14.0352
+  },
+  {
+    "name": "Leipzig",
+    "lat": 51.3397,
+    "lng": 12.3731
+  },
+  {
+    "name": "Lubeck",
+    "lat": 53.8654,
+    "lng": 10.6866
+  },
+  {
+    "name": "Lüneburg",
+    "lat": 53.2464,
+    "lng": 10.4115
+  },
+  {
+    "name": "Margaretenschlucht",
+    "lat": 49.3843,
+    "lng": 9.1381
+  },
+  {
+    "name": "Meersburg",
+    "lat": 47.695,
+    "lng": 9.2719
+  },
+  {
+    "name": "Merchants' Bridge",
+    "lat": 50.9772,
+    "lng": 10.3092
+  },
+  {
+    "name": "Mettlach",
+    "lat": 49.5,
+    "lng": 6.6
+  },
+  {
+    "name": "Miltenberg",
+    "lat": 49.7032,
+    "lng": 9.2569
+  },
+  {
+    "name": "Mittenwald",
+    "lat": 47.4414,
+    "lng": 11.2636
+  },
+  {
+    "name": "Mosel River Bend",
+    "lat": 50.1446,
+    "lng": 7.1646
+  },
+  {
+    "name": "Munich",
+    "lat": 48.1351,
+    "lng": 11.5820
+  },
+  {
+    "name": "Munster",
+    "lat": 51.9607,
+    "lng": 7.6261
+  },
+  {
+    "name": "Naumburg",
+    "lat": 51.1528,
+    "lng": 11.8142
+  },
+  {
+    "name": "NEANDERTHAL VALLEY AND THE NEANDERTHAL",
+    "lat": 51.2242,
+    "lng": 6.9736
+  },
+  {
+    "name": "Neuharlingersiel",
+    "lat": 53.7,
+    "lng": 7.7
+  },
+  {
+    "name": "Neuschweinstein castle",
+    "lat": 47.5575,
+    "lng": 10.7498
+  },
+  {
+    "name": "Nuremberg",
+    "lat": 49.4521,
+    "lng": 11.0767
+  },
+  {
+    "name": "Oberammergau",
+    "lat": 47.5952,
+    "lng": 11.0617
+  },
+  {
+    "name": "Partnach Gorge",
+    "lat": 47.4917,
+    "lng": 11.1222
+  },
+  {
+    "name": "Passau",
+    "lat": 48.5667,
+    "lng": 13.4667
+  },
+  {
+    "name": "Porta Nigra",
+    "lat": 49.7597,
+    "lng": 6.6439
+  },
+  {
+    "name": "Quedlinburg",
+    "lat": 51.7833,
+    "lng": 11.15
+  },
+  {
+    "name": "Rakotzbrücke",
+    "lat": 51.5368,
+    "lng": 14.6394
+  },
+  {
+    "name": "Ramsau bei berchtesgaden",
+    "lat": 47.6,
+    "lng": 12.9
+  },
+  {
+    "name": "Regensburg",
+    "lat": 49.0134,
+    "lng": 12.1016
+  },
+  {
+    "name": "Rheinsberg",
+    "lat": 53.1,
+    "lng": 12.9
+  },
+  {
+    "name": "Romantic road",
+    "lat": 49.0167,
+    "lng": 10.1667
+  },
+  {
+    "name": "Rothenburg",
+    "lat": 49.38,
+    "lng": 10.18
+  },
+  {
+    "name": "Route 500",
+    "lat": 48.7667,
+    "lng": 8.3333
+  },
+  {
+    "name": "Saalfeld Fairy Grottos",
+    "lat": 50.6472,
+    "lng": 11.3731
+  },
+  {
+    "name": "Schiltach",
+    "lat": 48.3,
+    "lng": 8.35
+  },
+  {
+    "name": "SCHLOSS DRACHENBURG",
+    "lat": 50.6675,
+    "lng": 7.2118
+  },
+  {
+    "name": "Schrecksee",
+    "lat": 47.3333,
+    "lng": 10.5
+  },
+  {
+    "name": "Schwarzwald Hochstrasse",
+    "lat": 48.6608,
+    "lng": 8.2186
+  },
+  {
+    "name": "Sellin Pier",
+    "lat": 54.3772,
+    "lng": 13.6968
+  },
+  {
+    "name": "SOLINGEN – SCHLOSS BURG",
+    "lat": 51.1417,
+    "lng": 7.1328
+  },
+  {
+    "name": "St Goarshausen",
+    "lat": 50.1539,
+    "lng": 7.7094
+  },
+  {
+    "name": "St Peter-Ording",
+    "lat": 54.3265,
+    "lng": 8.6043
+  },
+  {
+    "name": "Sylvenstein Dam",
+    "lat": 47.5792,
+    "lng": 11.5639
+  },
+  {
+    "name": "Teufelstisch",
+    "lat": 49.2025,
+    "lng": 7.7183
+  },
+  {
+    "name": "The Bastei",
+    "lat": 50.9667,
+    "lng": 14.0667
+  },
+  {
+    "name": "The Geierlay",
+    "lat": 50.0833,
+    "lng": 7.4333
+  },
+  {
+    "name": "The Mosel Valley",
+    "lat": 50.15,
+    "lng": 7.1667
+  },
+  {
+    "name": "Titisee",
+    "lat": 47.9,
+    "lng": 8.15
+  },
+  {
+    "name": "Trendelburg",
+    "lat": 51.5743,
+    "lng": 9.4319
+  },
+  {
+    "name": "Triberg",
+    "lat": 48.1333,
+    "lng": 8.2333
+  },
+  {
+    "name": "Untersberg",
+    "lat": 47.6833,
+    "lng": 13.0
+  },
+  {
+    "name": "Wernigerode",
+    "lat": 51.8386,
+    "lng": 10.7719
+  },
+  {
+    "name": "Wimbachklamm Gorge",
+    "lat": 47.6017,
+    "lng": 12.9267
+  },
+  {
+    "name": "Wismar",
+    "lat": 53.8887,
+    "lng": 11.462
+  },
+  {
+    "name": "Wuppertal",
+    "lat": 51.2562,
+    "lng": 7.1508
+  },
+  {
+    "name": "Wurzburg",
+    "lat": 49.7913,
+    "lng": 9.9534
+  },
+  {
+    "name": "Wutach Gorge",
+    "lat": 47.85,
+    "lng": 8.4
+  },
+  {
+    "name": "Xanten",
+    "lat": 51.6622,
+    "lng": 6.4544
+  },
+  {
+    "name": "ZECHE ZOLLVEREIN",
+    "lat": 51.4861,
+    "lng": 7.0444
+  },
+  {
+    "name": "Zittau",
+    "lat": 50.8964,
+    "lng": 14.8069
+  },
+  {
+    "name": "Zakynthos",
+    "lat": 37.7911,
+    "lng": 20.7267
+  },
+  {
+    "name": "Santorini",
+    "lat": 36.4624,
+    "lng": 25.3790
+  },
+  {
+    "name": "Samaria Gorge",
+    "lat": 35.3,
+    "lng": 23.9
+  },
+  {
+    "name": "Parga",
+    "lat": 39.28,
+    "lng": 20.4
+  },
+  {
+    "name": "Monemvasia",
+    "lat": 36.6875,
+    "lng": 23.0386
+  },
+  {
+    "name": "Delphi",
+    "lat": 38.4823,
+    "lng": 22.5010
+  },
+  {
+    "name": "Sami",
+    "lat": 38.2511,
+    "lng": 20.6534
+  },
+  {
+    "name": "Skiáthos island",
+    "lat": 39.1628,
+    "lng": 23.4905
+  },
+  {
+    "name": "Mykonos",
+    "lat": 37.4467,
+    "lng": 25.3289
+  },
+  {
+    "name": "Fira",
+    "lat": 36.4166,
+    "lng": 25.4333
+  },
+  {
+    "name": "Qasigiannguit",
+    "lat": 68.8212,
+    "lng": -51.1967
+  },
+  {
+    "name": "Disko Bay",
+    "lat": 69.2,
+    "lng": -51.5
+  },
+  {
+    "name": "Nuuk",
+    "lat": 64.1814,
+    "lng": -51.6941
+  },
+  {
+    "name": "Mayan ruins of Tikal",
+    "lat": 17.2222,
+    "lng": -89.6236
+  },
+  {
+    "name": "Budapest",
+    "lat": 47.4979,
+    "lng": 19.0402
+  },
+  {
+    "name": "Eger",
+    "lat": 47.9026,
+    "lng": 20.3771
+  },
+  {
+    "name": "Reynisfjara",
+    "lat": 63.4042,
+    "lng": -19.0644
+  },
+  {
+    "name": "Thrihnukagigur volcano",
+    "lat": 63.9887,
+    "lng": -21.6878
+  },
+  {
+    "name": "Stykkishólmur",
+    "lat": 65.0746,
+    "lng": -22.7307
+  },
+  {
+    "name": "Route one",
+    "lat": 64.9312,
+    "lng": -19.0222
+  },
+  {
+    "name": "Reynisfjara Beach",
+    "lat": 63.4042,
+    "lng": -19.0644
+  },
+  {
+    "name": "Mawlynnong",
+    "lat": 25.2996,
+    "lng": 91.5797
+  },
+  {
+    "name": "Ladakh",
+    "lat": 34.2268,
+    "lng": 77.5619
+  },
+  {
+    "name": "Hampi",
+    "lat": 15.3350,
+    "lng": 76.4600
+  },
+  {
+    "name": "Taj Mahal",
+    "lat": 27.1751,
+    "lng": 78.0421
+  },
+  {
+    "name": "Leh",
+    "lat": 34.1526,
+    "lng": 77.5771
+  },
+  {
+    "name": "Tea Plantations of Munnar",
+    "lat": 10.0889,
+    "lng": 77.0595
+  },
+  {
+    "name": "Varanasi",
+    "lat": 25.3176,
+    "lng": 83.0062
+  },
+  {
+    "name": "Jaipur",
+    "lat": 26.9124,
+    "lng": 75.7873
+  },
+  {
+    "name": "Raja Ampat Islands",
+    "lat": -0.5,
+    "lng": 130.5
+  },
+  {
+    "name": "Penglipuran",
+    "lat": -8.4220,
+    "lng": 115.3556
+  },
+  {
+    "name": "Palangan",
+    "lat": 34.9661,
+    "lng": 46.6033
+  },
+  {
+    "name": "Dingle",
+    "lat": 52.1408,
+    "lng": -10.2686
+  },
+  {
+    "name": "Kinsale",
+    "lat": 51.7058,
+    "lng": -8.5228
+  },
+  {
+    "name": "Beara peninsula",
+    "lat": 51.7,
+    "lng": -9.8833
+  },
+  {
+    "name": "Cinque Terre",
+    "lat": 44.1290,
+    "lng": 9.7101
+  },
+  {
+    "name": "Burano",
+    "lat": 45.4856,
+    "lng": 12.4166
+  },
+  {
+    "name": "Corinaldo",
+    "lat": 43.6512,
+    "lng": 13.0462
+  },
+  {
+    "name": "Stromboli",
+    "lat": 38.7919,
+    "lng": 15.2139
+  },
+  {
+    "name": "Rome",
+    "lat": 41.9028,
+    "lng": 12.4964
+  },
+  {
+    "name": "Vatican",
+    "lat": 41.9029,
+    "lng": 12.4534
+  },
+  {
+    "name": "Venice",
+    "lat": 45.4408,
+    "lng": 12.3155
+  },
+  {
+    "name": "Dolomites",
+    "lat": 46.4102,
+    "lng": 11.8440
+  },
+  {
+    "name": "Florence",
+    "lat": 43.7696,
+    "lng": 11.2558
+  },
+  {
+    "name": "San Fruttuoso beach",
+    "lat": 44.3226,
+    "lng": 9.1794
+  },
+  {
+    "name": "Ariccia",
+    "lat": 41.7216,
+    "lng": 12.6717
+  },
+  {
+    "name": "Bologna",
+    "lat": 44.4949,
+    "lng": 11.3426
+  },
+  {
+    "name": "Amalfi",
+    "lat": 40.6341,
+    "lng": 14.6025
+  },
+  {
+    "name": "Hadrian's Temple",
+    "lat": 42.0755,
+    "lng": 3.1205
+  },
+  {
+    "name": "Procida",
+    "lat": 40.7626,
+    "lng": 14.0154
+  },
+  {
+    "name": "Stelvio Pass",
+    "lat": 46.5303,
+    "lng": 10.4518
+  },
+  {
+    "name": "Santa Maddalena",
+    "lat": 46.6434,
+    "lng": 11.7312
+  },
+  {
+    "name": "Sant'Agata de' Goti",
+    "lat": 41.0864,
+    "lng": 14.5042
+  },
+  {
+    "name": "Vieste",
+    "lat": 41.8806,
+    "lng": 16.1751
+  },
+  {
+    "name": "Pitigliano",
+    "lat": 42.6342,
+    "lng": 11.6681
+  },
+  {
+    "name": "Pompeii",
+    "lat": 40.7527,
+    "lng": 14.4897
+  },
+  {
+    "name": "Sirmione",
+    "lat": 45.4833,
+    "lng": 10.6167
+  },
+  {
+    "name": "Portoferraio",
+    "lat": 42.8167,
+    "lng": 10.3167
+  },
+  {
+    "name": "Portovenere",
+    "lat": 44.0678,
+    "lng": 9.8361
+  },
+  {
+    "name": "Sorano",
+    "lat": 42.6825,
+    "lng": 11.7164
+  },
+  {
+    "name": "DOBBIACO",
+    "lat": 46.7333,
+    "lng": 12.2167
+  },
+  {
+    "name": "Saturnia",
+    "lat": 42.6667,
+    "lng": 11.5
+  },
+  {
+    "name": "Amalfi Coast",
+    "lat": 40.6340,
+    "lng": 14.6024
+  },
+  {
+    "name": "Cefalù",
+    "lat": 38.0333,
+    "lng": 14.0167
+  },
+  {
+    "name": "Taormina",
+    "lat": 37.8525,
+    "lng": 15.2856
+  },
+  {
+    "name": "Arashiyama Bamboo Grove",
+    "lat": 35.0169,
+    "lng": 135.6719
+  },
+  {
+    "name": "Gokayama",
+    "lat": 36.4048,
+    "lng": 136.9354
+  },
+  {
+    "name": "Gokayama Historic Village",
+    "lat": 36.4048,
+    "lng": 136.9354
+  },
+  {
+    "name": "Karuizawa",
+    "lat": 36.3486,
+    "lng": 138.5931
+  },
+  {
+    "name": "Arashiyama Bamboo Forest",
+    "lat": 35.0170,
+    "lng": 135.6720
+  },
+  {
+    "name": "Petra",
+    "lat": 30.3285,
+    "lng": 35.4444
+  },
+  {
+    "name": "Wadi Rum",
+    "lat": 29.5833,
+    "lng": 35.4167
+  },
+  {
+    "name": "Great Migration",
+    "lat": -2.1533,
+    "lng": 34.6865
+  },
+  {
+    "name": "Lamu",
+    "lat": -2.2717,
+    "lng": 40.9019
+  },
+  {
+    "name": "Itchan Kala",
+    "lat": 41.3775,
+    "lng": 60.3636
+  },
+  {
+    "name": "Mekong",
+    "lat": 15.9833,
+    "lng": 105.5
+  },
+  {
+    "name": "Jezzine",
+    "lat": 33.5428,
+    "lng": 35.5858
+  },
+  {
+    "name": "Vianden",
+    "lat": 49.9353,
+    "lng": 6.2095
+  },
+  {
+    "name": "Avenue of the Baobabs",
+    "lat": -20.25,
+    "lng": 44.4167
+  },
+  {
+    "name": "Antananarivo",
+    "lat": -18.8792,
+    "lng": 47.5079
+  },
+  {
+    "name": "George Town",
+    "lat": 5.4145,
+    "lng": 100.3292
+  },
+  {
+    "name": "CAMERON HIGHLANDS",
+    "lat": 4.4722,
+    "lng": 101.3767
+  },
+  {
+    "name": "Taman Negara National Park",
+    "lat": 4.3833,
+    "lng": 102.4
+  },
+  {
+    "name": "Timbuktu",
+    "lat": 16.7666,
+    "lng": -3.0026
+  },
+  {
+    "name": "Valldemossa",
+    "lat": 39.7107,
+    "lng": 2.6241
+  },
+  {
+    "name": "Popeye Village",
+    "lat": 35.9595,
+    "lng": 14.3428
+  },
+  {
+    "name": "M'dina",
+    "lat": 35.8869,
+    "lng": 14.4067
+  },
+  {
+    "name": "Valletta",
+    "lat": 35.8989,
+    "lng": 14.5146
+  },
+  {
+    "name": "Cabo San Lucas",
+    "lat": 22.8905,
+    "lng": -109.9167
+  },
+  {
+    "name": "Taxco",
+    "lat": 18.5567,
+    "lng": -99.6056
+  },
+  {
+    "name": "Yucatán",
+    "lat": 20.7099,
+    "lng": -89.0943
+  },
+  {
+    "name": "Tulum",
+    "lat": 20.2114,
+    "lng": -87.4654
+  },
+  {
+    "name": "Las Coloradas",
+    "lat": 21.6053,
+    "lng": -87.9786
+  },
+  {
+    "name": "Kotor",
+    "lat": 42.4207,
+    "lng": 18.7697
+  },
+  {
+    "name": "Petrovac",
+    "lat": 42.2056,
+    "lng": 18.9422
+  },
+  {
+    "name": "Ait Ben-Haddou",
+    "lat": 31.0469,
+    "lng": -7.1289
+  },
+  {
+    "name": "Essaouira",
+    "lat": 31.5125,
+    "lng": -9.7698
+  },
+  {
+    "name": "Dunes of Sossusvlei",
+    "lat": -24.7292,
+    "lng": 15.3457
+  },
+  {
+    "name": "Etosha National Park",
+    "lat": -18.8555,
+    "lng": 16.3279
+  },
+  {
+    "name": "Namib-Naukluft National Park",
+    "lat": -24.2801,
+    "lng": 15.6401
+  },
+  {
+    "name": "Mount Everest",
+    "lat": 27.9881,
+    "lng": 86.9250
+  },
+  {
+    "name": "Royal Chitwan National Park",
+    "lat": 27.5,
+    "lng": 84.3333
+  },
+  {
+    "name": "Kathmandu",
+    "lat": 27.7172,
+    "lng": 85.3240
+  },
+  {
+    "name": "Giethoorn",
+    "lat": 52.7217,
+    "lng": 6.0744
+  },
+  {
+    "name": "Amsterdam",
+    "lat": 52.3676,
+    "lng": 4.9041
+  },
+  {
+    "name": "Zaandam",
+    "lat": 52.4416,
+    "lng": 4.8292
+  },
+  {
+    "name": "The Hague",
+    "lat": 52.0705,
+    "lng": 4.3007
+  },
+  {
+    "name": "Naarden",
+    "lat": 52.2953,
+    "lng": 5.1625
+  },
+  {
+    "name": "Thorn",
+    "lat": 51.1619,
+    "lng": 5.8414
+  },
+  {
+    "name": "Rotterdam",
+    "lat": 51.9244,
+    "lng": 4.4777
+  },
+  {
+    "name": "The Hoge Veluwe National Park",
+    "lat": 52.0833,
+    "lng": 5.8667
+  },
+  {
+    "name": "Keukenhof Gardens",
+    "lat": 52.2697,
+    "lng": 4.5476
+  },
+  {
+    "name": "Maastricht",
+    "lat": 50.8514,
+    "lng": 5.6910
+  },
+  {
+    "name": "Kinderdijk",
+    "lat": 51.8878,
+    "lng": 4.6303
+  },
+  {
+    "name": "Haarlem",
+    "lat": 52.3874,
+    "lng": 4.6462
+  },
+  {
+    "name": "Alkmaar Cheese Market",
+    "lat": 52.6324,
+    "lng": 4.7534
+  },
+  {
+    "name": "The Efteling",
+    "lat": 51.6500,
+    "lng": 5.0500
+  },
+  {
+    "name": "New Dutch Water Line",
+    "lat": 52.0308,
+    "lng": 5.1192
+  },
+  {
+    "name": "Bourtange",
+    "lat": 53.0067,
+    "lng": 7.1931
+  },
+  {
+    "name": "White Sands",
+    "lat": 32.7872,
+    "lng": -106.3257
+  },
+  {
+    "name": "Lake Tekapo",
+    "lat": -44.0042,
+    "lng": 170.4778
+  },
+  {
+    "name": "Tongariro Crossing",
+    "lat": -39.2,
+    "lng": 175.583
+  },
+  {
+    "name": "Fiordland",
+    "lat": -45.4167,
+    "lng": 167.7167
+  },
+  {
+    "name": "Wanaka",
+    "lat": -44.7032,
+    "lng": 169.1303
+  },
+  {
+    "name": "Trolltunga",
+    "lat": 60.1246,
+    "lng": 6.7400
+  },
+  {
+    "name": "Lofoten Islands",
+    "lat": 68.1500,
+    "lng": 13.7000
+  },
+  {
+    "name": "Northern Lights",
+    "lat": 69.6492,
+    "lng": 18.9553
+  },
+  {
+    "name": "Spitsbergen",
+    "lat": 78.0000,
+    "lng": 16.0000
+  },
+  {
+    "name": "Bergen",
+    "lat": 60.3913,
+    "lng": 5.3221
+  },
+  {
+    "name": "Geiranger",
+    "lat": 62.1008,
+    "lng": 7.2058
+  },
+  {
+    "name": "Norangsdalen valley",
+    "lat": 62.2500,
+    "lng": 6.7500
+  },
+  {
+    "name": "Alesund",
+    "lat": 62.4722,
+    "lng": 6.1500
+  },
+  {
+    "name": "Stavanger",
+    "lat": 58.9700,
+    "lng": 5.7331
+  },
+  {
+    "name": "Pulpit Rock",
+    "lat": 58.9862,
+    "lng": 6.1897
+  },
+  {
+    "name": "Øye",
+    "lat": 62.3007,
+    "lng": 6.3183
+  },
+  {
+    "name": "Runde Island",
+    "lat": 62.4086,
+    "lng": 5.6325
+  },
+  {
+    "name": "Flåm",
+    "lat": 60.8631,
+    "lng": 7.1133
+  },
+  {
+    "name": "Aurlandsfjord",
+    "lat": 60.9000,
+    "lng": 7.1333
+  },
+  {
+    "name": "Sognefjord",
+    "lat": 61.1333,
+    "lng": 6.0000
+  },
+  {
+    "name": "Naeroyfjord",
+    "lat": 60.8333,
+    "lng": 7.1667
+  },
+  {
+    "name": "Tananger",
+    "lat": 58.9333,
+    "lng": 5.5833
+  },
+  {
+    "name": "Atlanterhavsveien",
+    "lat": 63.0169,
+    "lng": 7.3550
+  },
+  {
+    "name": "Oslo",
+    "lat": 59.9139,
+    "lng": 10.7522
+  },
+  {
+    "name": "Arctic circle",
+    "lat": 66.5622,
+    "lng": 18.0000
+  },
+  {
+    "name": "Briksdalsbreen Glacier",
+    "lat": 61.6667,
+    "lng": 6.8167
+  },
+  {
+    "name": "Svalbard",
+    "lat": 78.2167,
+    "lng": 15.6500
+  },
+  {
+    "name": "Trollstigen",
+    "lat": 62.4568,
+    "lng": 7.6639
+  },
+  {
+    "name": "Stetind",
+    "lat": 68.1667,
+    "lng": 16.5833
+  },
+  {
+    "name": "Lake Titicaca",
+    "lat": -15.8358,
+    "lng": -69.5277
+  },
+  {
+    "name": "Choquequirao",
+    "lat": -13.3939,
+    "lng": -72.8656
+  },
+  {
+    "name": "HUACACHINA",
+    "lat": -14.0873,
+    "lng": -75.7639
+  },
+  {
+    "name": "Aguas Calientes",
+    "lat": -13.1547,
+    "lng": -72.5254
+  },
+  {
+    "name": "Boracay",
+    "lat": 11.9674,
+    "lng": 121.9248
+  },
+  {
+    "name": "Palawan",
+    "lat": 9.8349,
+    "lng": 118.7384
+  },
+  {
+    "name": "Auschwitz",
+    "lat": 50.0343,
+    "lng": 19.1825
+  },
+  {
+    "name": "The Azores",
+    "lat": 37.7412,
+    "lng": -25.6756
+  },
+  {
+    "name": "Sintra",
+    "lat": 38.7980,
+    "lng": -9.3881
+  },
+  {
+    "name": "Lisbon",
+    "lat": 38.7223,
+    "lng": -9.1393
+  },
+  {
+    "name": "Lagos",
+    "lat": 37.1028,
+    "lng": -8.6745
+  },
+  {
+    "name": "Azenhas do Mar",
+    "lat": 38.8356,
+    "lng": -9.4684
+  },
+  {
+    "name": "Monsanto",
+    "lat": 40.0367,
+    "lng": -7.1144
+  },
+  {
+    "name": "Aveiro",
+    "lat": 40.6443,
+    "lng": -8.6455
+  },
+  {
+    "name": "Ilha das Flores",
+    "lat": 39.4500,
+    "lng": -31.1833
+  },
+  {
+    "name": "Sistelo",
+    "lat": 41.9751,
+    "lng": -8.3778
+  },
+  {
+    "name": "Islet of Vila Franca do Campo",
+    "lat": 37.7083,
+    "lng": -25.4583
+  },
+  {
+    "name": "Douro Valley",
+    "lat": 41.1167,
+    "lng": -7.5333
+  },
+  {
+    "name": "Furnas",
+    "lat": 37.7667,
+    "lng": -25.3167
+  },
+  {
+    "name": "Rincón",
+    "lat": 18.3472,
+    "lng": -67.2506
+  },
+  {
+    "name": "Sibiu",
+    "lat": 45.7983,
+    "lng": 24.1256
+  },
+  {
+    "name": "Lake Baikal",
+    "lat": 53.5000,
+    "lng": 108.0000
+  },
+  {
+    "name": "Trans-Siberian Railway",
+    "lat": 55.7558,
+    "lng": 37.6173
+  },
+  {
+    "name": "Bolshoi Ballet",
+    "lat": 55.7598,
+    "lng": 37.6188
+  },
+  {
+    "name": "Sviyazhsk",
+    "lat": 55.7708,
+    "lng": 48.6544
+  },
+  {
+    "name": "Suzdal",
+    "lat": 56.4167,
+    "lng": 40.4500
+  },
+  {
+    "name": "Isle of Skye",
+    "lat": 57.3000,
+    "lng": -6.3500
+  },
+  {
+    "name": "Portree",
+    "lat": 57.4128,
+    "lng": -6.1964
+  },
+  {
+    "name": "Outer Hebrides",
+    "lat": 57.8167,
+    "lng": -7.0000
+  },
+  {
+    "name": "Highlands",
+    "lat": 57.0000,
+    "lng": -4.0000
+  },
+  {
+    "name": "Tobermory",
+    "lat": 56.6230,
+    "lng": -6.0720
+  },
+  {
+    "name": "Crovie",
+    "lat": 57.6807,
+    "lng": -2.3451
+  },
+  {
+    "name": "The Storr",
+    "lat": 57.5000,
+    "lng": -6.1833
+  },
+  {
+    "name": "Lake Bled",
+    "lat": 46.3664,
+    "lng": 14.0944
+  },
+  {
+    "name": "Bovec",
+    "lat": 46.3375,
+    "lng": 13.5525
+  },
+  {
+    "name": "Bohinj",
+    "lat": 46.3167,
+    "lng": 13.8667
+  },
+  {
+    "name": "Maribor",
+    "lat": 46.5500,
+    "lng": 15.6500
+  },
+  {
+    "name": "Boulders Beach",
+    "lat": -34.1972,
+    "lng": 18.4513
+  },
+  {
+    "name": "Picton",
+    "lat": -41.2833,
+    "lng": 174.0167
+  },
+  {
+    "name": "Júzcar",
+    "lat": 36.5962,
+    "lng": -5.1718
+  },
+  {
+    "name": "Playa de Las Catedrales",
+    "lat": 43.5539,
+    "lng": -7.1575
+  },
+  {
+    "name": "Potes",
+    "lat": 43.1500,
+    "lng": -4.6167
+  },
+  {
+    "name": "San Sebastian",
+    "lat": 43.3224,
+    "lng": -1.9846
+  },
+  {
+    "name": "Madrid",
+    "lat": 40.4168,
+    "lng": -3.7038
+  },
+  {
+    "name": "Frigiliana",
+    "lat": 36.7833,
+    "lng": -3.8931
+  },
+  {
+    "name": "Albarracín",
+    "lat": 40.4050,
+    "lng": -1.4445
+  },
+  {
+    "name": "Cuenca",
+    "lat": 40.0708,
+    "lng": -2.1346
+  },
+  {
+    "name": "Castellfollit de la Roca",
+    "lat": 42.2206,
+    "lng": 2.5533
+  },
+  {
+    "name": "Alcalá del Júcar",
+    "lat": 39.1933,
+    "lng": -1.4300
+  },
+  {
+    "name": "Covadonga lakes",
+    "lat": 43.2733,
+    "lng": -4.9925
+  },
+  {
+    "name": "Aguero",
+    "lat": 42.3667,
+    "lng": -0.7833
+  },
+  {
+    "name": "Sigiriya",
+    "lat": 7.9572,
+    "lng": 80.7600
+  },
+  {
+    "name": "Lapland",
+    "lat": 67.9222,
+    "lng": 26.5041
+  },
+  {
+    "name": "Stockholm",
+    "lat": 59.3293,
+    "lng": 18.0686
+  },
+  {
+    "name": "Visby",
+    "lat": 57.6348,
+    "lng": 18.2948
+  },
+  {
+    "name": "Malmo",
+    "lat": 55.6050,
+    "lng": 13.0038
+  },
+  {
+    "name": "Wengen",
+    "lat": 46.6067,
+    "lng": 7.9222
+  },
+  {
+    "name": "Gruyères",
+    "lat": 46.5833,
+    "lng": 7.0667
+  },
+  {
+    "name": "Stein am Rhein",
+    "lat": 47.6599,
+    "lng": 8.8588
+  },
+  {
+    "name": "Vitznau",
+    "lat": 47.0083,
+    "lng": 8.4836
+  },
+  {
+    "name": "Diessenhofen",
+    "lat": 47.6833,
+    "lng": 8.7333
+  },
+  {
+    "name": "Lake Lugano",
+    "lat": 46.0004,
+    "lng": 9.0000
+  },
+  {
+    "name": "Jiufen",
+    "lat": 25.1090,
+    "lng": 121.8445
+  },
+  {
+    "name": "Mount Kilimanjaro",
+    "lat": -3.0674,
+    "lng": 37.3556
+  },
+  {
+    "name": "Serengeti National Park",
+    "lat": -2.3333,
+    "lng": 34.8333
+  },
+  {
+    "name": "Kilimanjaro",
+    "lat": -3.0764,
+    "lng": 37.3556
+  },
+  {
+    "name": "Zanzibar",
+    "lat": -6.1659,
+    "lng": 39.3621
+  },
+  {
+    "name": "Ko Phi Phi",
+    "lat": 7.7167,
+    "lng": 98.7667
+  },
+  {
+    "name": "Krabi",
+    "lat": 8.0862,
+    "lng": 98.9062
+  },
+  {
+    "name": "Larung Gar",
+    "lat": 32.1274,
+    "lng": 100.4556
+  },
+  {
+    "name": "Jokhang and Potala Palace",
+    "lat": 29.6575,
+    "lng": 91.1178
+  },
+  {
+    "name": "Ortahisar",
+    "lat": 38.6314,
+    "lng": 34.8606
+  },
+  {
+    "name": "Bosphorus",
+    "lat": 41.1450,
+    "lng": 29.0344
+  },
+  {
+    "name": "Torquay",
+    "lat": 50.4617,
+    "lng": -3.5253
+  },
+  {
+    "name": "Colonia del Sacramento",
+    "lat": -34.4626,
+    "lng": -57.8403
+  },
+  {
+    "name": "Denali National Park",
+    "lat": 63.3333,
+    "lng": -150.5000
+  },
+  {
+    "name": "Solvang",
+    "lat": 34.5958,
+    "lng": -120.1376
+  },
+  {
+    "name": "Avalon",
+    "lat": 33.3428,
+    "lng": -118.3287
+  },
+  {
+    "name": "Na Pali Coast",
+    "lat": 22.1814,
+    "lng": -159.6361
+  },
+  {
+    "name": "Maui",
+    "lat": 20.7984,
+    "lng": -156.3319
+  },
+  {
+    "name": "Camden",
+    "lat": 44.2098,
+    "lng": -69.0647
+  },
+  {
+    "name": "Mackinac Island",
+    "lat": 45.8696,
+    "lng": -84.6286
+  },
+  {
+    "name": "Hannibal",
+    "lat": 39.7136,
+    "lng": -91.3583
+  },
+  {
+    "name": "Deadwood",
+    "lat": 44.3767,
+    "lng": -103.7292
+  },
+  {
+    "name": "Utah's canyons",
+    "lat": 37.7576,
+    "lng": -111.6010
+  },
+  {
+    "name": "Yosemite National Park",
+    "lat": 37.8651,
+    "lng": -119.5383
+  },
+  {
+    "name": "New York",
+    "lat": 40.7128,
+    "lng": -74.0060
+  },
+  {
+    "name": "Yellowstone National Park",
+    "lat": 44.4280,
+    "lng": -110.5885
+  },
+  {
+    "name": "Cahokia",
+    "lat": 38.6495,
+    "lng": -90.0586
+  },
+  {
+    "name": "Julia Pfeiffer Burns State Park",
+    "lat": 36.1711,
+    "lng": -121.6710
+  },
+  {
+    "name": "Na Pali Coast State Park",
+    "lat": 22.1814,
+    "lng": -159.6361
+  },
+  {
+    "name": "Grand Teton National Park",
+    "lat": 43.7904,
+    "lng": -110.6818
+  },
+  {
+    "name": "Grand Prismatic Spring",
+    "lat": 44.5251,
+    "lng": -110.8383
+  },
+  {
+    "name": "Stowe",
+    "lat": 44.4654,
+    "lng": -72.6874
+  },
+  {
+    "name": "Angel Falls",
+    "lat": 5.9700,
+    "lng": -62.5366
+  },
+  {
+    "name": "Port Fairy",
+    "lat": -38.3874,
+    "lng": 142.2354
+  },
+  {
+    "name": "Cua Van",
+    "lat": 20.8917,
+    "lng": 107.0469
+  },
+  {
+    "name": "Hoi An",
+    "lat": 15.8801,
+    "lng": 108.3380
+  },
+  {
+    "name": "Sapa",
+    "lat": 22.3364,
+    "lng": 103.8438
+  },
+  {
+    "name": "Sa Pa",
+    "lat": 22.3364,
+    "lng": 103.8438
+  },
+  {
+    "name": "Tu Le Valley",
+    "lat": 21.8167,
+    "lng": 104.0333
+  },
+  {
+    "name": "Tenby",
+    "lat": 51.6700,
+    "lng": -4.7036
+  },
+  {
+    "name": "Shibam",
+    "lat": 15.9253,
+    "lng": 48.8285
+  },
+  {
+    "name": "Haid Al-Jazil",
+    "lat": 15.4333,
+    "lng": 45.0333
+  },
+  {
+    "name": "Zambezi",
+    "lat": -17.7833,
+    "lng": 25.8500
+  },
+  {
+    "name": "South Luangwa National Park",
+    "lat": -13.1000,
+    "lng": 31.8000
+  },
+  {
+    "name": "Antarctica",
+    "lat": -82.8628,
+    "lng": -135.0000
+  },
+  {
+    "name": "Faroe Islands",
+    "lat": 62.0000,
+    "lng": -6.7833
+  },
+  {
+    "name": "Falkland Islands",
+    "lat": -51.7963,
+    "lng": -59.5236
+  },
+  {
+    "name": "Seychelles",
+    "lat": -4.6826,
+    "lng": 55.4800
+  },
+  {
+    "name": "Bordeaux",
+    "lat": 44.8378,
+    "lng": -0.5792
+  },
+  {
+    "name": "San Francisco",
+    "lat": 37.7749,
+    "lng": -122.4194
+  },
+  {
+    "name": "Wudang",
+    "lat": 32.4000,
+    "lng": 111.0000
+  },
+  {
+    "name": "Barcelona",
+    "lat": 41.3851,
+    "lng": 2.1734
+  },
+  {
+    "name": "Zugspitze",
+    "lat": 47.4211,
+    "lng": 10.9858
+  },
+  {
+    "name": "Nördlingen",
+    "lat": 48.8503,
+    "lng": 10.4923
+  },
+  {
+    "name": "Constantine",
+    "lat": 36.3650,
+    "lng": 6.6147
+  },
+  {
+    "name": "Patagonia",
+    "lat": -41.8101,
+    "lng": -68.9063
+  },
+  {
+    "name": "Office de Tourisme des 1000 Etangs",
+    "lat": 47.8039,
+    "lng": 6.6145
+  },
+  {
+    "name": "Freudenberg",
+    "lat": 51.0500,
+    "lng": 7.8667
+  },
+  {
+    "name": "Kotor",
+    "lat": 42.4207,
+    "lng": 18.7697
+  },
+  {
+    "name": "Dubrovnik",
+    "lat": 42.6507,
+    "lng": 18.0944
+  },
+  {
+    "name": "Matera",
+    "lat": 40.6667,
+    "lng": 16.6000
+  },
+  {
+    "name": "Apulia",
+    "lat": 41.0000,
+    "lng": 16.5000
+  },
+  {
+    "name": "Annecy",
+    "lat": 45.8992,
+    "lng": 6.1294
+  },
+  {
+    "name": "Capri",
+    "lat": 40.5507,
+    "lng": 14.2422
+  },
+  {
+    "name": "Positano",
+    "lat": 40.6284,
+    "lng": 14.4850
+  },
+  {
+    "name": "Polignano a Mare",
+    "lat": 40.9955,
+    "lng": 17.2222
+  },
+  {
+    "name": "Blagaj",
+    "lat": 43.2569,
+    "lng": 17.8855
+  },
+  {
+    "name": "Corniglia",
+    "lat": 44.1195,
+    "lng": 9.7081
+  },
+  {
+    "name": "Praiano",
+    "lat": 40.6100,
+    "lng": 14.5300
+  },
+  {
+    "name": "Monsanto",
+    "lat": 40.0367,
+    "lng": -7.1144
+  },
+  {
+    "name": "Civita di Bagnoregio",
+    "lat": 42.6278,
+    "lng": 12.1139
+  },
+  {
+    "name": "Èze",
+    "lat": 43.7284,
+    "lng": 7.3613
+  },
+  {
+    "name": "Bellagio",
+    "lat": 45.9864,
+    "lng": 9.2641
+  },
+  {
+    "name": "Hallerbos",
+    "lat": 50.7000,
+    "lng": 4.2833
+  },
+  {
+    "name": "Castelmezzano",
+    "lat": 40.5337,
+    "lng": 16.0458
+  },
+  {
+    "name": "Český Krumlov",
+    "lat": 48.8127,
+    "lng": 14.3175
+  },
+  {
+    "name": "Conques",
+    "lat": 44.5989,
+    "lng": 2.3975
+  },
+  {
+    "name": "Göreme",
+    "lat": 38.6444,
+    "lng": 34.8289
+  },
+  {
+    "name": "Setenil de las Bodegas",
+    "lat": 36.8643,
+    "lng": -5.1814
+  },
+  {
+    "name": "Ronda",
+    "lat": 36.7468,
+    "lng": -5.1650
+  },
+  {
+    "name": "Antequera",
+    "lat": 37.0186,
+    "lng": -4.5620
+  },
+  {
+    "name": "Mijas",
+    "lat": 36.5953,
+    "lng": -4.6378
+  },
+  {
+    "name": "Estepona",
+    "lat": 36.4254,
+    "lng": -5.1454
+  },
+  {
+    "name": "Meteora",
+    "lat": 39.7211,
+    "lng": 21.6306
+  },
+  {
+    "name": "Athens",
+    "lat": 37.9838,
+    "lng": 23.7275
+  },
+  {
+    "name": "Monsanto",
+    "lat": 40.0367,
+    "lng": -7.1144
+  },
+  {
+    "name": "Alberobello",
+    "lat": 40.7864,
+    "lng": 17.2417
+  },
+  {
+    "name": "Saint Paul de Vence",
+    "lat": 43.6969,
+    "lng": 7.1231
+  },
+  {
+    "name": "Altea",
+    "lat": 38.6000,
+    "lng": -0.0500
+  }
+]
