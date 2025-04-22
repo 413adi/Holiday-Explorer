@@ -82,8 +82,12 @@
             content: none;
         }
         
+
         .location-inputs {
-            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            margin-bottom: 11px;
         }
         
         .location-input {
@@ -101,7 +105,7 @@
             margin-bottom: 5px;
             align-items: center;
             position: relative; /* Important for dropdown positioning */
-            flex-wrap: nowrap; /* Prevent wrapping */
+            flex-wrap: wrap; /* Prevent wrapping */
         }
         
         .location-input:focus {
@@ -130,7 +134,7 @@
         .add-location-btn, .remove-location-btn {
             margin-left: 10px;
             padding: 8px 12px;
-            color: white;
+            color: rgb(156, 125, 100);
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -143,17 +147,28 @@
             justify-content: center;
             box-sizing: border-box;
         }
-
         .add-location-btn {
-            background-color: #8D6E63;
+            display: block;
+            margin-top: 10px;
+            width: 100%;
+            max-width: 120px;
+            height: 36px;
+            font-size: 16px;
+            background-color: #8D6E63; /* Nice warm brown */
+            color: white; /* Makes the + symbol visible */
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+            cursor: pointer;
         }
 
+
         .add-location-btn:hover {
-            background-color: #6D4C41;
+            background-color: #533227;
         }
 
         .remove-location-btn {
-            background-color: #A1887F;
+            background-color: #63534d;
         }
 
         .remove-location-btn:hover {
@@ -501,9 +516,9 @@
                     <option value="cycling">Cycling</option>
                 </select>
                 <div class="dropdown"></div>
-                <button class="add-location-btn">+</button>
             </div>
         </div>
+        <button class="add-location-btn">+</button>
         
         <div class="distance-customization">            
             <div class="controls-row">
