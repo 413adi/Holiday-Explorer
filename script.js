@@ -198,6 +198,372 @@ function displayIntersections(isochrones) {
     }
 }
 
+// Add this new code after displayIntersections function
+
+// Create container for the overlap list
+let overlapsContainer;
+
+// Initialize the overlaps panel
+function initOverlapsPanel() {
+    // Remove if already exists
+    $('.overlaps-container').remove();
+    
+    // Create the container
+    overlapsContainer = $('<div>').addClass('overlaps-container');
+    const header = $('<div>').addClass('overlaps-header')
+        .html('<h3>Locations in overlap</h3>');
+    
+    // Add a toggle for collapsing
+    const toggleBtn = $('<button>')
+        .addClass('overlaps-toggle')
+        .html('<i class="fas fa-chevron-up"></i>');
+    
+    toggleBtn.on('click', function() {
+        $('.overlaps-list').toggleClass('collapsed');
+        $(this).find('i').toggleClass('fa-chevron-up fa-chevron-down');
+    });
+    
+    header.append(toggleBtn);
+    
+    // Create the list container
+    const listContainer = $('<div>').addClass('overlaps-list');
+    const emptyMessage = $('<div>').addClass('empty-message')
+        .text('No locations found in overlap areas');
+    
+    listContainer.append(emptyMessage);
+    
+    // Add to the DOM
+    overlapsContainer.append(header, listContainer);
+    $('body').append(overlapsContainer);
+    
+    return overlapsContainer;
+}
+
+// Function to find locations in overlap areas
+function findLocationsInOverlaps(intersections) {
+    // Only proceed if permanent locations are shown
+    if (!$('#show-permanent').prop('checked') || permanentLocations.length === 0) {
+        return [];
+    }
+    
+    // Empty array to store locations in overlap
+    const locationsInOverlap = [];
+    
+    // Check each permanent location
+    permanentLocations.forEach(location => {
+        if (!location.lat || !location.lng || !location.name) {
+            return;
+        }
+        
+        // Create a GeoJSON point for this location
+        const point = turf.point([location.lng, location.lat]);
+        
+        // Check if this point is within any intersection
+        for (const intersection of intersections) {
+            try {
+                if (turf.booleanPointInPolygon(point, intersection.polygon)) {
+                    // Add to our results array with the intersection info
+                    locationsInOverlap.push({
+                        name: location.name,
+                        lat: location.lat,
+                        lng: location.lng,
+                        intersectionName: intersection.name,
+                        overlappingAreas: intersection.areas
+                    });
+                    
+                    // Break the loop - we only need to know it's in at least one intersection
+                    break;
+                }
+            } catch (error) {
+                console.error("Error checking if point is in polygon:", error);
+            }
+        }
+    });
+    
+    return locationsInOverlap;
+}
+
+// Function to update the overlap list display
+function updateOverlapsList(locations) {
+    // Make sure we have the container
+    if (!overlapsContainer) {
+        overlapsContainer = initOverlapsPanel();
+    }
+    
+    // Get the list container
+    const listContainer = $('.overlaps-list');
+    
+    // Clear existing items
+    listContainer.empty();
+    
+    // If no locations or checkbox is unchecked, show empty message
+    if (locations.length === 0 || !$('#show-permanent').prop('checked')) {
+        const emptyMessage = $('<div>').addClass('empty-message')
+            .text(
+                !$('#show-permanent').prop('checked') 
+                ? 'Enable location recommendations to see places in overlap areas' 
+                : 'No locations found in overlap areas'
+            );
+        listContainer.append(emptyMessage);
+        return;
+    }
+    
+    // Group locations by intersection
+    const groupedLocations = {};
+    locations.forEach(loc => {
+        if (!groupedLocations[loc.intersectionName]) {
+            groupedLocations[loc.intersectionName] = [];
+        }
+        groupedLocations[loc.intersectionName].push(loc);
+    });
+    
+    // Add sections for each intersection type
+    Object.keys(groupedLocations).forEach(intersectionName => {
+        const intersectionGroup = $('<div>').addClass('overlap-group');
+        
+        // Create a header for this group
+        const groupHeader = $('<div>').addClass('overlap-group-header')
+            .html(`<strong>${intersectionName}</strong> (${groupedLocations[intersectionName].length} locations)`);
+        
+        // Create the list of locations
+        const locationsList = $('<ul>').addClass('overlap-locations-list');
+        
+        // Add each location to the list
+        groupedLocations[intersectionName].forEach(loc => {
+            const item = $('<li>').addClass('overlap-location-item');
+            
+            // Create the item content
+            const itemContent = $('<div>').addClass('overlap-item-content');
+            itemContent.text(loc.name);
+            
+            // Add a button to center the map on this location
+            const centerBtn = $('<button>').addClass('center-location-btn')
+                .html('<i class="fas fa-search-location"></i>')
+                .attr('title', 'Center map on this location');
+            
+            centerBtn.on('click', function() {
+                // Center map on this location
+                map.setView([loc.lat, loc.lng], 13);
+                
+                // Find the corresponding marker
+                const marker = permanentMarkers.find(m => {
+                    const latlng = m.getLatLng();
+                    return latlng.lat === loc.lat && latlng.lng === loc.lng;
+                });
+                
+                // If found, show popup and highlight
+                if (marker) {
+                    // Reset previously selected marker if any
+                    if (selectedMarker) {
+                        selectedMarker.setIcon(L.divIcon({
+                            className: 'permanent-marker',
+                            html: `<div style="background-color: rgba(93,94,55,0.7); width: 6px; height: 6px; border-radius: 50%; border: 2px solid white;"></div>`,
+                            iconSize: [16, 16],
+                            iconAnchor: [8, 8]
+                        }));
+                    }
+                    
+                    // Set this as selected marker
+                    selectedMarker = marker;
+                    
+                    // Change appearance to show it's selected
+                    marker.setIcon(L.divIcon({
+                        className: 'permanent-marker',
+                        html: `<div style="background-color: #5D4037; width: 20px; height: 20px; border-radius: 50%; border: 3px solid white;"></div>`,
+                        iconSize: [26, 26],
+                        iconAnchor: [13, 13]
+                    }));
+                    
+                    // Open popup
+                    marker.openPopup();
+                }
+            });
+            
+            item.append(itemContent, centerBtn);
+            locationsList.append(item);
+        });
+        
+        // Add to the group
+        intersectionGroup.append(groupHeader, locationsList);
+        
+        // Add to the container
+        listContainer.append(intersectionGroup);
+    });
+}
+
+// Modify the displayIntersections function to track all intersections
+function displayIntersections(isochrones) {
+    // Remove any existing intersection layers
+    circleGroups.forEach(group => {
+        group.getLayers().forEach(layer => {
+            if (layer._intersectionLayer) {
+                group.removeLayer(layer._intersectionLayer);
+            }
+        });
+    });
+    
+    // We need at least 2 isochrones to have an intersection
+    if (isochrones.length < 2) {
+        // If no intersections, update the overlaps list to be empty
+        updateOverlapsList([]);
+        return;
+    }
+    
+    // Create a new group for all intersections
+    const intersectionGroup = L.layerGroup().addTo(map);
+    circleGroups.push(intersectionGroup);
+    
+    // Track all intersection polygons with metadata
+    const allIntersections = [];
+    
+    // Check every pair of isochrones
+    for (let i = 0; i < isochrones.length - 1; i++) {
+        for (let j = i + 1; j < isochrones.length; j++) {
+            try {
+                console.log(`Testing intersection between ${isochrones[i].name} and ${isochrones[j].name}`);
+                
+                // Try to find intersection using Turf.js
+                const intersection = turf.intersect(isochrones[i].geoJSON, isochrones[j].geoJSON);
+                
+                if (intersection) {
+                    console.log(`Found intersection between ${isochrones[i].name} and ${isochrones[j].name}:`, intersection);
+                    
+                    // Create a layer for this intersection
+                    const intersectionLayer = L.geoJSON(intersection, {
+                        style: {
+                            color: '#000000',         // Black border 
+                            fillColor: '#FF5500',     // Bright orange fill
+                            fillOpacity: 0.3,         // More opaque than regular isochrones
+                            weight: 2,
+                            dashArray: '3, 5'         // Dashed line for distinction
+                        }
+                    }).addTo(intersectionGroup);
+                    
+                    // Add a popup showing which locations overlap here
+                    intersectionLayer.bindPopup(`<div style="font-weight: bold;">Overlap Area</div>
+                        <div>${isochrones[i].name} & ${isochrones[j].name}</div>
+                        <div>${isochrones[i].radius} min & ${isochrones[j].radius} min</div>`);
+                    
+                    // Add to our tracking array
+                    allIntersections.push({
+                        name: `Overlap between ${isochrones[i].name.split(',')[0]} & ${isochrones[j].name.split(',')[0]}`,
+                        areas: [`${isochrones[i].name} (${isochrones[i].radius} min)`, 
+                               `${isochrones[j].name} (${isochrones[j].radius} min)`],
+                        polygon: intersection
+                    });
+                } else {
+                    console.log(`No intersection found between ${isochrones[i].name} and ${isochrones[j].name}`);
+                }
+            } catch (error) {
+                console.error(`Error finding intersection between ${isochrones[i].name} and ${isochrones[j].name}:`, error);
+            }
+        }
+    }
+    
+    // Check for areas where all isochrones overlap (if 3+ isochrones)
+    if (isochrones.length >= 3) {
+        try {
+            // Start with the first two
+            let allIntersection = turf.intersect(isochrones[0].geoJSON, isochrones[1].geoJSON);
+            
+            // If we found an initial intersection, check against all others
+            if (allIntersection) {
+                let allOverlap = true;
+                
+                for (let i = 2; i < isochrones.length; i++) {
+                    allIntersection = turf.intersect(allIntersection, isochrones[i].geoJSON);
+                    
+                    // If at any point we don't have an intersection, exit
+                    if (!allIntersection) {
+                        allOverlap = false;
+                        break;
+                    }
+                }
+                
+                // If we found an area where all overlap
+                if (allOverlap && allIntersection) {
+                    console.log("Found area where ALL isochrones overlap!");
+                    
+                    // Create a special layer for this all-overlap area
+                    const allOverlapLayer = L.geoJSON(allIntersection, {
+                        style: {
+                            color: '#FFFFFF',      // White border
+                            fillColor: '#FF0000',  // Red fill  
+                            fillOpacity: 0.5,      // More opaque
+                            weight: 3
+                        }
+                    }).addTo(intersectionGroup);
+                    
+                    // Create a popup content with all location names
+                    const locationNames = isochrones.map(iso => iso.name).join(', ');
+                    allOverlapLayer.bindPopup(`<div style="font-weight: bold; color: #FF0000;">All Locations Overlap Here!</div>
+                        <div>${locationNames}</div>`);
+                    
+                    // Add to our tracking array
+                    allIntersections.push({
+                        name: "All Locations Overlap",
+                        areas: isochrones.map(iso => `${iso.name} (${iso.radius} min)`),
+                        polygon: allIntersection
+                    });
+                }
+            }
+        } catch (error) {
+            console.error("Error finding all-overlap area:", error);
+        }
+    }
+    
+    // Find locations in these intersections
+    const locationsInOverlap = findLocationsInOverlaps(allIntersections);
+    console.log("Found", locationsInOverlap.length, "locations in overlapped areas:", locationsInOverlap);
+    
+    // Update the UI with these locations
+    updateOverlapsList(locationsInOverlap);
+}
+
+// Modify permanent locations display to update overlap list when toggled
+function displayPermanentLocations() {
+    // Only proceed if the checkbox is checked
+    if (!$('#show-permanent').prop('checked')) {
+        // If not checked, clear all permanent markers from map
+        permanentMarkers.forEach(marker => map.removeLayer(marker));
+        permanentMarkers = [];
+        
+        // Also update the overlaps list to show the disabled message
+        updateOverlapsList([]);
+        return;
+    }
+    
+    // Rest of the function remains as is...
+    // [Original function code]
+    
+    // After displaying markers, trigger an update of the overlaps list
+    // by calling updateCircles
+    updateCircles();
+}
+
+// Add initialization of the overlaps panel in the main initialization function
+(async function() {
+    try {
+        permanentLocations = await loadPermanentLocations();
+        displayPermanentLocations(); // Display permanent locations as pins
+        
+        // Initialize with a clean map
+        updateCircles();
+        
+        // Create map legend
+        createMapLegend();
+        
+        // Initialize the overlaps panel
+        initOverlapsPanel();
+        
+        // Check if scroll indicator is needed
+        checkScrollIndicator();
+    } catch (error) {
+        console.error("Error initializing application:", error);
+        showStatus('Error initializing application. Some features may not work correctly.', 'error');
+    }
+})();
+
 // Function to generate distinct colors for each location
 function getColorForIndex(index) {
     // Define an array of distinct, visually pleasing colors
@@ -1258,3 +1624,99 @@ $(window).on('resize', function() {
         }, 350);
     });
 })();
+
+// Initialize EmailJS
+(function() {
+    // Replace with your Email.js public key
+    emailjs.init("dbgYcsV7hHmyqHhsK");
+})();
+
+// Set up recommendation box functionality
+function initRecommendationBox() {
+    // Set up toggle functionality
+    $('.recommendation-toggle').on('click', function() {
+        $('.recommendation-content').toggleClass('collapsed');
+        $(this).find('i').toggleClass('fa-chevron-up fa-chevron-down');
+    });
+    
+    // Set up send functionality
+    $('#send-recommendation').on('click', function() {
+        const recommendation = $('#recommendation-text').val().trim();
+        if (!recommendation) {
+            $('#recommendation-status')
+                .removeClass('success')
+                .addClass('error')
+                .text('Please enter a recommendation')
+                .show();
+            return;
+        }
+        
+        sendRecommendation(recommendation);
+    });
+}
+
+// Function to send recommendation via Email.js
+function sendRecommendation(recommendation) {
+    // Show sending state
+    const button = $('#send-recommendation');
+    const originalText = button.text();
+    button.text('Sending...').prop('disabled', true);
+    
+    // Prepare template parameters
+    const templateParams = {
+        name: "Map User", // Default name or you could add a name input field
+        recommendation: recommendation,
+        timestamp: new Date().toLocaleString()
+    };
+    
+    // Send email using EmailJS
+    // Replace with your Email.js service ID and template ID
+    emailjs.send("service_4uho4ea", "template_fa0wk4y", templateParams)
+        .then(function(response) {
+            console.log("Email sent successfully!", response);
+            showRecommendationSuccess();
+        })
+        .catch(function(error) {
+            console.error("Email sending failed:", error);
+            showRecommendationError("Failed to send recommendation. Please try again.");
+        })
+        .finally(function() {
+            button.text(originalText).prop('disabled', false);
+        });
+}
+
+// Show success message for recommendation
+function showRecommendationSuccess() {
+    $('#recommendation-status')
+        .removeClass('error')
+        .addClass('success')
+        .text('Thank you! Your recommendation has been sent.')
+        .show();
+    
+    // Clear the textarea
+    $('#recommendation-text').val('');
+    
+    // Hide message after 5 seconds
+    setTimeout(() => {
+        $('#recommendation-status').fadeOut();
+    }, 5000);
+}
+
+// Show error message for recommendation
+function showRecommendationError(message) {
+    $('#recommendation-status')
+        .removeClass('success')
+        .addClass('error')
+        .text(message)
+        .show();
+    
+    // Hide message after 5 seconds
+    setTimeout(() => {
+        $('#recommendation-status').fadeOut();
+    }, 5000);
+}
+
+// Call init function when document is ready
+$(document).ready(function() {
+    initRecommendationBox();
+});

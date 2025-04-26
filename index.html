@@ -22,7 +22,8 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.awesome-markers/dist/leaflet.awesome-markers.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js"></script>
-
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>   
     <div id="map"></div>
@@ -61,9 +62,7 @@
                             <input type="checkbox" id="show-permanent" checked>
                             <label for="show-permanent">Show location recommendations</label>
                         </div>
-                        <button id="clear-cache-btn" class="apply-distances-btn">
-                            Clear Isochrone Cache
-                        </button>
+
                     </div>
                     
                     <div class="status-message" id="status-message"></div>
@@ -82,6 +81,18 @@
             </button>
     </div>
 
+    <!-- Recommendation Box -->
+    <div id="recommendation-box" class="recommendation-box">
+        <div class="recommendation-header">
+            <h3>Suggest a Place!</h3>
+            <button class="recommendation-toggle"><i class="fas fa-chevron-up"></i></button>
+        </div>
+        <div class="recommendation-content">
+            <textarea id="recommendation-text" placeholder="Suggest a place or feature you would like. Yes, it will reach me!&#10Please send all requests at once, I have limited free credits!"></textarea>
+            <button id="send-recommendation" class="send-recommendation-btn">Send Recommendation</button>
+            <div id="recommendation-status" class="recommendation-status"></div>
+        </div>
+    </div>
     </div>
     <script src="script.js"></script>
 </body>
