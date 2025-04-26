@@ -559,7 +559,7 @@ h2 {
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     }
     .toggle-button i {
-        transition: transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+        transition: transform 0.9s cubic-bezier(0.4, 0.0, 0.2, 1);
     }
     
     .toggle-button:hover {
@@ -583,18 +583,20 @@ h2 {
     padding-bottom: 0;
     margin-top: 0;
     margin-bottom: 0;
-    transition: max-height 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: max-height 0.9s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 /* Overlap locations panel styles */
 .overlaps-container {
     position: absolute;
-    top: 50%;
+    width: calc(100% - 40px);
+    top: auto;
     right: 20px;
+    bottom: 100px; /* Keep this as is to stay above zoom controls */
     transform: translateY(-50%);
     background-color: white;
     width: 300px;
-    max-height: 400px;
+    max-height: 300px;
     border-radius: 6px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     z-index: 1000;
@@ -603,6 +605,7 @@ h2 {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    transform: none;
 }
 
 .overlaps-header {
@@ -645,7 +648,7 @@ h2 {
     padding: 10px;
     overflow-y: auto;
     max-height: 350px;
-    transition: max-height 0.3s ease-out;
+    transition: max-height 0.9s ease-out;
 }
 
 .overlaps-list.collapsed {
@@ -724,20 +727,118 @@ h2 {
     color: #5D4037;
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .overlaps-container {
-        width: calc(100% - 40px); /* Full width minus margins */
-        right: 20px;
-        left: auto;
-        top: auto; /* Don't use the top positioning on mobile */
-        bottom: 60px; /* Above the zoom controls */
-        max-height: 300px;
-        transform: none; /* Remove the vertical centering */
+
+/* Animated toggle for recommendation box - matching overlaps container */
+@media only screen and (max-width: 768px) {
+    /* Base styling for recommendation box */
+    .recommendation-box {
+        position: fixed !important;
+        top: 55px !important;
+        right: 20px !important;
+        left: 20px !important;
+        bottom: auto !important;
+        width: calc(100% - 40px) !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        transform: none !important;
+        z-index: 999 !important;
+        box-sizing: border-box !important;
+        
+        /* Add the same transition as overlaps container */
+        transition: max-height 0.5s ease-out, padding 0.5s ease !important;
+        overflow: hidden !important;
+        max-height: 48px !important; /* Default expanded state */
     }
     
-    .overlaps-list {
-        max-height: 250px;
+    /* Collapsed state for recommendation box */
+    .recommendation-box.collapsed {
+        max-height: 500px !important; /* Just enough for the header */
+    }
+    
+    /* Animation for recommendation content */
+    .recommendation-content {
+        transition: max-height 0.3s ease-out, padding 0.3s ease !important;
+        max-height: 450px !important; /* Default expanded state */
+        overflow: hidden !important;
+        padding: 15px !important;
+    }
+    
+    /* Collapsed state for recommendation content */
+    .recommendation-content.collapsed {
+        max-height: 0 !important;
+        padding: 0 15px !important; /* Keep horizontal padding but remove vertical */
+    }
+    
+    /* Style the toggle button to match overlaps-toggle */
+    .recommendation-toggle {
+        background: none !important;
+        border: none !important;
+        color: white !important;
+        cursor: pointer !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 24px !important;
+        height: 24px !important;
+        border-radius: 50% !important;
+        transition: background-color 0.2s !important;
+    }
+    
+    .recommendation-toggle:hover {
+        background-color: rgba(255, 255, 255, 0.2) !important;
+    }
+    
+    /* Add rotation animation to the toggle icon if you're using an icon */
+    .recommendation-toggle i {
+        transition: transform 0.3s ease !important;
+    }
+    
+    .recommendation-box.collapsed .recommendation-toggle i {
+        transform: rotate(180deg) !important;
+    }
+    
+    /* Controls container should have higher z-index */
+    .controls-container {
+        z-index: 1000 !important;
+    }
+}
+
+/* Desktop animation */
+@media only screen and (min-width: 769px) {
+    .recommendation-box {
+        position: absolute;
+        top: 55px;
+        right: 20px;
+        width: 300px;
+        z-index: 999;
+        transition: max-height 0.3s ease-out;
+        overflow: hidden;
+        max-height: 48px; /* Default expanded state */
+    }
+    
+    .recommendation-box.collapsed {
+        max-height: 500px; /* Just enough for the header */
+    }
+    
+    .recommendation-content {
+        transition: max-height 0.3s ease-out, padding 0.3s ease;
+        max-height: 450px;
+        overflow: hidden;
+    }
+    
+    .recommendation-content.collapsed {
+        max-height: 0;
+        padding: 0 15px;
+    }
+    
+    .recommendation-toggle i {
+        transition: transform 0.3s ease;
+    }
+    
+    .recommendation-box.collapsed .recommendation-toggle i {
+        transform: rotate(180deg);
     }
 }
 
@@ -791,7 +892,7 @@ h2 {
 }
 
 .recommendation-content {
-    padding: 15px;
+    padding: 5px;
 }
 
 #recommendation-text {
@@ -852,6 +953,8 @@ h2 {
     .recommendation-box {
         width: calc(100% - 40px);
         right: 20px;
-        top: 80px;
+        top: auto; /* Remove the top positioning */
+        bottom: 370px; /* Position it above the overlaps box with some spacing */
+        z-index: 1000;
     }
 }

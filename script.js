@@ -216,7 +216,7 @@ function initOverlapsPanel() {
     // Add a toggle for collapsing
     const toggleBtn = $('<button>')
         .addClass('overlaps-toggle')
-        .html('<i class="fas fa-chevron-up"></i>');
+        .html('<i class="fas fa-chevron-down"></i>');
     
     toggleBtn.on('click', function() {
         $('.overlaps-list').toggleClass('collapsed');
@@ -1636,7 +1636,7 @@ function initRecommendationBox() {
     // Set up toggle functionality
     $('.recommendation-toggle').on('click', function() {
         $('.recommendation-content').toggleClass('collapsed');
-        $(this).find('i').toggleClass('fa-chevron-up fa-chevron-down');
+        $(this).find('i').toggleClass('fa-chevron-up fa-chevron-up');
     });
     
     // Set up send functionality
@@ -1720,3 +1720,36 @@ function showRecommendationError(message) {
 $(document).ready(function() {
     initRecommendationBox();
 });
+
+// JavaScript for recommendation box toggle
+document.addEventListener('DOMContentLoaded', function() {
+    // Get recommendation toggle button and box
+    const recommendationToggle = document.querySelector('.recommendation-toggle');
+    const recommendationBox = document.querySelector('.recommendation-box');
+    const recommendationContent = document.querySelector('.recommendation-content');
+    
+    if (recommendationToggle && recommendationBox && recommendationContent) {
+        // Add click event to toggle button
+        recommendationToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Toggle the collapsed class on both box and content
+            recommendationBox.classList.toggle('collapsed');
+            recommendationContent.classList.toggle('collapsed');
+        });
+        
+        // Also allow clicking the header to toggle (similar to overlaps container)
+        const recommendationHeader = document.querySelector('.recommendation-header');
+        if (recommendationHeader) {
+            recommendationHeader.addEventListener('click', function(e) {
+                // Don't trigger if clicking the toggle button itself
+                if (e.target !== recommendationToggle && !recommendationToggle.contains(e.target)) {
+                    recommendationBox.classList.toggle('collapsed');
+                    recommendationContent.classList.toggle('collapsed');
+                }
+            });
+        }
+    }
+});
+
