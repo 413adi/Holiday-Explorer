@@ -785,7 +785,8 @@ function displayPermanentLocations() {
         });
 
         // Add popup with location name
-        marker.bindPopup(location.name);
+        //marker.bindPopup(location.name);
+        marker.bindPopup("<strong>" + location.name + "</strong><br>" + location.fact);
 
         // Add click handler directly to the marker
         marker.on('click', function(e) {
@@ -824,7 +825,8 @@ function displayPermanentLocations() {
         permanentMarkers.push(marker);
         
         // Add popup with location name
-        marker.bindPopup(location.name);
+        // marker.bindPopup(location.name);
+        marker.bindPopup("<strong>" + location.name + "</strong><br>" + location.fact);
         
         // Add to map
         marker.addTo(map);
