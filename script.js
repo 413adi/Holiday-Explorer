@@ -79,7 +79,23 @@ map.on('click', function(e) {
         }));
         selectedMarker = null;
     }
+    // Find and remove all custom tooltips
+    const tooltips = document.querySelectorAll('.plain-tooltip');
+    tooltips.forEach(tooltip => {
+        if (tooltip.parentNode) {
+            tooltip.parentNode.removeChild(tooltip);
+        }
+    });
+    
+    // Also clear marker references to tooltips
+    permanentMarkers.forEach(marker => {
+        if (marker._tooltip) {
+            marker._tooltip = null;
+        }
+    });
 });
+
+
 // Store selected locations and their circles
 const selectedLocations = [];
 let circleGroups = [];
@@ -784,9 +800,52 @@ function displayPermanentLocations() {
             })
         });
 
+        // Add hover functionality
+        marker.on('mouseover', function(e) {
+            // Create a custom tooltip div instead of using Leaflet's built-in tooltip
+            const tooltip = L.DomUtil.create('div', 'plain-tooltip');
+            tooltip.innerHTML = location.name;
+            
+            // Position it above the marker
+            const pos = map.latLngToLayerPoint(this.getLatLng());
+            tooltip.style.position = 'absolute';
+            tooltip.style.left = `${pos.x}px`;
+            tooltip.style.top = `${pos.y - 35}px`; // Offset above the point
+            
+            // Add to map container
+            map.getContainer().appendChild(tooltip);
+            
+            // Store reference for removal
+            this._tooltip = tooltip;
+        });
+        
+        marker.on('mouseout', function(e) {
+            // Remove custom tooltip with a slight delay to prevent flicker
+            // when moving between markers
+            setTimeout(() => {
+                if (this._tooltip && this._tooltip.parentNode) {
+                    this._tooltip.parentNode.removeChild(this._tooltip);
+                    this._tooltip = null;
+                }
+            }, 20);
+        });
+        
+        // Update tooltip position on map move/zoom
+        map.on('moveend', function() {
+            // Update positions of any visible tooltips
+            permanentMarkers.forEach(marker => {
+                if (marker._tooltip) {
+                    const pos = map.latLngToLayerPoint(marker.getLatLng());
+                    marker._tooltip.style.left = `${pos.x}px`;
+                    marker._tooltip.style.top = `${pos.y - 20}px`;
+                }
+            });
+        });
         // Add popup with location name
         //marker.bindPopup(location.name);
-        marker.bindPopup("<strong>" + location.name + "</strong><br>" + location.fact);
+        marker.bindPopup("<strong>" + location.name + "</strong><br>" + location.fact, {
+            className: 'custom-popup'
+        });
 
         // Add click handler directly to the marker
         marker.on('click', function(e) {
@@ -826,7 +885,9 @@ function displayPermanentLocations() {
         
         // Add popup with location name
         // marker.bindPopup(location.name);
-        marker.bindPopup("<strong>" + location.name + "</strong><br>" + location.fact);
+        marker.bindPopup("<strong>" + location.name + "</strong><br>" + location.fact, {
+            className: 'custom-popup'
+        });
         
         // Add to map
         marker.addTo(map);
