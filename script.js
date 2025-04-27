@@ -801,23 +801,34 @@ function displayPermanentLocations() {
         });
 
         // Add hover functionality
+        // Inside displayPermanentLocations function
         marker.on('mouseover', function(e) {
-            // Create a custom tooltip div instead of using Leaflet's built-in tooltip
+            // Remove any existing tooltip
+            if (this._tooltip && this._tooltip.parentNode) {
+                this._tooltip.parentNode.removeChild(this._tooltip);
+                this._tooltip = null;
+            }
+            
+            // Create a custom tooltip div
             const tooltip = L.DomUtil.create('div', 'plain-tooltip');
             tooltip.innerHTML = location.name;
             
-            // Position it above the marker
+            // Get marker's pixel position on screen
             const pos = map.latLngToLayerPoint(this.getLatLng());
+            
+            // Position tooltip above the marker
             tooltip.style.position = 'absolute';
             tooltip.style.left = `${pos.x}px`;
-            tooltip.style.top = `${pos.y - 35}px`; // Offset above the point
+            tooltip.style.top = `${pos.y - 35}px`;
             
-            // Add to map container
-            map.getContainer().appendChild(tooltip);
+            // Add to map pane instead of map container
+            // This is crucial - the map's panes move with the map content
+            map.getPanes().popupPane.appendChild(tooltip);
             
             // Store reference for removal
             this._tooltip = tooltip;
         });
+
         
         marker.on('mouseout', function(e) {
             // Remove custom tooltip with a slight delay to prevent flicker
