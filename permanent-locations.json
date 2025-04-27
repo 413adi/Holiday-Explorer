@@ -24,12 +24,6 @@
     "fact": "Famous for its incredibly pure, white silica sand and turquoise waters."
   },
   {
-    "name": "Kakadu National Park, Australia",
-    "lat": -12.72,
-    "lng": 132.53,
-    "fact": "Home to ancient Aboriginal rock art sites that date back over 20,000 years."
-  },
-  {
     "name": "Sydney Harbour Bridge, Australia",
     "lat": -33.8523,
     "lng": 151.2108,
@@ -259,8 +253,8 @@
   },
   {
     "name": "VILLA LA ANGOSTURA",
-    "lat": -37.7878,
-    "lng": 23.8917,
+    "lat": -40.7627,
+    "lng": -71.6418,
     "fact": "A picturesque village in Argentina's Patagonia region, often called 'The Garden of Patagonia.' It's located on the shores of Nahuel Huapi Lake and is known for its Alpine-style architecture and access to the Arrayanes Forest."
   },
   {
@@ -684,7 +678,7 @@
     "fact": "Known for its surreal landscape of chalk rock formations shaped like giant mushrooms and other strange formations. These structures were formed through wind erosion over millions of years."
   },
   {
-    "name": "Rye",
+    "name": "Rye, England",
     "lat": 50.95,
     "lng": 0.7333,
     "fact": "One of England's best-preserved medieval towns, with cobbled streets and half-timbered houses. It was once surrounded by sea and served as an important harbor and naval base until the coastline receded, leaving it 2 miles inland."
@@ -2250,10 +2244,10 @@
     "fact": "An archipelago in Norway known for its dramatic mountains, pristine beaches, and picturesque fishing villages with distinctive red wooden houses called rorbuer. Despite being located above the Arctic Circle at 68° North, the islands enjoy relatively mild temperatures due to the Gulf Stream."
   },
   {
-    "name": "Northern Lights",
+    "name": "Tromsø",
     "lat": 69.6492,
     "lng": 18.9553,
-    "fact": "Also known as Aurora Borealis, this spectacular natural light display occurs when charged particles from the sun collide with gases in Earth's atmosphere. The phenomenon is named after Aurora, the Roman goddess of dawn, and Boreas, the Greek god of the north wind."
+    "fact": "Tromsø, often called the Gateway to the Arctic, is a vibrant city in northern Norway where dramatic fjords, snow-capped peaks, and colorful houses meet the dazzling Northern Lights. With its lively cultural scene, historic charm, and endless Arctic adventures, Tromsø offers a perfect blend of rugged wilderness and cozy, Nordic spirit."
   },
   {
     "name": "Spitsbergen",
@@ -2892,6 +2886,36 @@
     "fact": "A region containing the highest concentration of slot canyons in the world, formed by water erosion through sandstone. These narrow passages can be as slim as 3 feet across while reaching depths of over 100 feet. The most famous, Antelope Canyon, features dramatic light beams that shine through openings above, creating constantly changing patterns on the red-orange walls as the sun moves across the sky."
   },
   {
+    "name": "Antelope Canyon",
+    "lat": 36.8619,
+    "lng": -111.3743,
+    "fact": "Antelope Canyon in Arizona is a mesmerizing slot canyon where sunlight pierces through narrow sandstone walls, creating shifting beams of light and waves of glowing orange and red rock. Sculpted by centuries of water and wind, its smooth, flowing shapes make it one of the most photogenic and enchanting natural wonders in the world."
+  },
+  {
+    "name": "Horseshoe Bend",
+    "lat": 36.8791,
+    "lng": -111.5104,
+    "fact": "Horseshoe Bend in Arizona is a breathtaking natural wonder where the Colorado River sweeps around a dramatic, horseshoe-shaped curve carved into steep red cliffs. Standing at the edge, visitors are treated to a stunning panoramic view of emerald waters and rugged sandstone, a scene that feels both timeless and humbling."
+  },
+  {
+    "name": "Las Vegas",
+    "lat": 36.1716,
+    "lng": -115.1391,
+    "fact": "Las Vegas, the dazzling oasis in the Nevada desert, is a city of endless lights, extravagant entertainment, and vibrant energy. From luxury casinos and world-famous shows to neon-lit streets and architectural wonders, Vegas offers a surreal, nonstop adventure where reality and fantasy blur into one unforgettable experience."
+  },
+  {
+    "name": "Grand Canyon",
+    "lat": 36.2679,
+    "lng": -112.3535,
+    "fact": "The Grand Canyon is a colossal masterpiece of nature, carved by the Colorado River over millions of years. Its vast layers of red, gold, and ochre rock stretch endlessly toward the horizon, creating a landscape so immense and awe-inspiring it feels almost beyond human scale—a true cathedral of earth and time."
+  },
+  {
+    "name": "Rovaniemi",
+    "lat": 66.5039,
+    "lng": 25.7294,
+    "fact": "Rovaniemi, nestled on the edge of the Arctic Circle in Finnish Lapland, is a magical gateway to the wonders of the North. Known as the official hometown of Santa Claus, it offers snowy landscapes, shimmering Northern Lights, and cozy wooden lodges—blending winter fairy tales with the raw beauty of the Arctic wilderness."
+  },
+  {
     "name": "Yosemite National Park",
     "lat": 37.8651,
     "lng": -119.5383,
@@ -3364,5 +3388,53 @@
     "lat": 64.4220,
     "lng": -16.7902,
     "fact": "Vatnajökull Glacier Caves in Iceland are an awe-inspiring, icy world hidden beneath Europe’s largest glacier. These crystal-blue ice caves, formed by melting water carving through the glacier, glow with stunning hues of turquoise and deep blue. With their intricate ice formations, they create a magical atmosphere that feels like stepping into a frozen cathedral. Visiting these caves offers an unforgettable experience of nature’s frozen beauty, set against the dramatic landscape of Vatnajökull National Park."
+  },
+  {
+    "name": "Vienna",
+    "lat": 48.2081,
+    "lng": 16.3713,
+    "fact": "Vienna, Austria’s elegant capital, is a city where imperial history and vibrant culture intertwine. Grand palaces, world-class museums, and stately coffee houses line its charming streets, while the music of Mozart and Strauss still echoes through gilded concert halls. With its blend of timeless architecture, lush parks, and a thriving contemporary art scene, Vienna offers a rich and refined experience at every corner."
+  },
+  {
+    "name": "Madurai",
+    "lat": 9.9252,
+    "lng": 78.1198,
+    "fact": "Madurai, one of India’s oldest living cities, pulses with history, spirituality, and vibrant culture. At its heart stands the magnificent Meenakshi Amman Temple, a masterpiece of Dravidian architecture with its towering, colorful gopurams. Known as the City of Temples, Madurai blends ancient traditions with bustling markets, aromatic street food, and a timeless energy that makes every visit feel both sacred and alive."
+  },
+  {
+    "name": "Helsinki",
+    "lat": 60.1699,
+    "lng": 24.9384,
+    "fact": "Helsinki, Finland’s stylish capital, blends Nordic cool with a relaxed seaside charm. Elegant architecture, creative design, lush parks, and a vibrant café culture shape the city’s unique spirit, while the nearby archipelago and refreshing sea breeze make it feel both modern and close to nature."
+  },
+  {
+    "name": "Canary Islands",
+    "lat": 28.2916,
+    "lng": 16.6291,
+    "fact": "The Canary Islands, a Spanish archipelago off the coast of Africa, are a world of diverse landscapes—from volcanic peaks and black-sand beaches to lush forests and golden dunes. Each island has its own character, offering endless sunshine, dramatic scenery, and a blend of Spanish, African, and Latin American influences that create a vibrant, unforgettable atmosphere."
+  },
+  {
+    "name": "Dubai",
+    "lat": 25.2048,
+    "lng": 55.2708,
+    "fact": "Dubai is a city of superlatives, where futuristic skyscrapers rise from the desert alongside ancient souks and golden beaches. A global hub of innovation, luxury, and culture, Dubai dazzles with its bold architecture, lavish lifestyle, and a spirit that constantly pushes the boundaries of imagination."
+  },
+  {
+    "name": "London",
+    "lat": 51.5072,
+    "lng": 0.1276,
+    "fact": "London is a timeless city where centuries of history meet a vibrant, modern spirit. Iconic landmarks like Big Ben, Buckingham Palace, and the Tower Bridge share the skyline with cutting-edge architecture, while world-class museums, lively markets, and diverse neighborhoods weave together a rich, ever-evolving tapestry."
+  },
+  {
+    "name": "Prime Meridian",
+    "lat": 51.4779,
+    "lng": 0.0015,
+    "fact": "The Prime Meridian is the imaginary line that divides the Eastern and Western Hemispheres, passing through the Royal Observatory in Greenwich, London. It represents 0° longitude, a global reference point for navigation and timekeeping, and stands as a symbol of Earth's interconnectedness and the precision of our geographical measurements."
+  },
+  {
+    "name": "Saint Petersberg",
+    "lat": 59.9311,
+    "lng": 30.3609,
+    "fact": "Saint Petersburg, Russia’s cultural capital, is a city of elegance and history, where grand palaces, intricate canals, and stunning bridges reflect its imperial past. Known for its artistic heritage, the city boasts world-renowned museums like the Hermitage, neoclassical architecture, and a vibrant arts scene, all set against the backdrop of the Neva River and the mystical white nights of summer."
   }
 ]

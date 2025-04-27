@@ -782,78 +782,51 @@ h2 {
 
 /* Animated toggle for recommendation box - matching overlaps container */
 @media only screen and (max-width: 768px) {
-    /* Base styling for recommendation box */
+    /* Improved recommendation box positioning for mobile */
     .recommendation-box {
         position: fixed !important;
-        top: 55px !important;
-        right: 20px !important;
-        left: 20px !important;
-        bottom: auto !important;
-        width: calc(100% - 40px) !important;
+        top: auto !important; 
+        right: 10px !important;
+        left: 10px !important;
+        bottom: 100px !important;
+        width: calc(100% - 20px) !important;
         min-width: 0 !important;
         max-width: none !important;
-        transform: none !important;
         z-index: 999 !important;
         box-sizing: border-box !important;
-        
-        /* Add the same transition as overlaps container */
-        transition: max-height 0.5s ease-out, padding 0.5s ease !important;
-        overflow: hidden !important;
-        max-height: 48px !important; /* Default expanded state */
     }
     
-    /* Collapsed state for recommendation box */
-    .recommendation-box.collapsed {
-        max-height: 500px !important; /* Just enough for the header */
-    }
-    
-    /* Animation for recommendation content */
+    /* Ensure the content area has enough height when expanded */
     .recommendation-content {
-        transition: max-height 0.3s ease-out, padding 0.3s ease !important;
-        max-height: 450px !important; /* Default expanded state */
-        overflow: hidden !important;
-        padding: 15px !important;
+        max-height: 300px !important;
+        transition: max-height 0.4s ease-out, padding 0.3s ease !important;
+        overflow-y: auto !important; /* Allow scrolling if content is too tall */
     }
     
-    /* Collapsed state for recommendation content */
+    /* Make sure collapsed state works properly */
     .recommendation-content.collapsed {
         max-height: 0 !important;
-        padding: 0 15px !important; /* Keep horizontal padding but remove vertical */
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        overflow: hidden !important;
     }
     
-    /* Style the toggle button to match overlaps-toggle */
+    /* Ensure the toggle button is clearly visible and tappable */
     .recommendation-toggle {
-        background: none !important;
-        border: none !important;
-        color: white !important;
-        cursor: pointer !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        width: 24px !important;
-        height: 24px !important;
-        border-radius: 50% !important;
-        transition: background-color 0.2s !important;
+        padding: 8px !important;
+        width: 36px !important;
+        height: 36px !important;
     }
     
-    .recommendation-toggle:hover {
-        background-color: rgba(255, 255, 255, 0.2) !important;
+    /* Make text area a bit shorter on mobile to save space */
+    #recommendation-text {
+        height: 80px !important;
     }
     
-    /* Add rotation animation to the toggle icon if you're using an icon */
-    .recommendation-toggle i {
-        transition: transform 0.3s ease !important;
-    }
-    
-    .recommendation-box.collapsed .recommendation-toggle i {
-        transform: rotate(180deg) !important;
-    }
-    
-    /* Controls container should have higher z-index */
-    .controls-container {
-        z-index: 1000 !important;
+    /* Make send button easier to tap */
+    .send-recommendation-btn {
+        padding: 12px !important;
+        font-size: 16px !important;
     }
 }
 
@@ -894,7 +867,6 @@ h2 {
     }
 }
 
-/* Recommendation Box Styles */
 .recommendation-box {
     position: absolute;
     top: 20px;
@@ -943,8 +915,19 @@ h2 {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
+/* Key part for expanding/collapsing */
 .recommendation-content {
-    padding: 5px;
+    padding: 15px;
+    transition: max-height 0.3s ease-out, padding 0.3s ease;
+    max-height: 300px; /* Height when expanded */
+    overflow: hidden;
+}
+
+.recommendation-content.collapsed {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden;
 }
 
 #recommendation-text {
@@ -997,17 +980,14 @@ h2 {
     border: 1px solid #EF9A9A;
 }
 
-.recommendation-content.collapsed {
-    display: none;
-}
-
+/* Mobile responsiveness */
 @media (max-width: 768px) {
     .recommendation-box {
         width: calc(100% - 40px);
         right: 20px;
-        top: auto; /* Remove the top positioning */
-        bottom: 370px; /* Position it above the overlaps box with some spacing */
-        z-index: 1000;
+        left: 20px;
+        top: auto;
+        bottom: 100px;
     }
 }
 
@@ -1120,4 +1100,62 @@ h2 {
         font-size: 13px;
         padding: 5px 10px;
     }
+}
+
+.custom-popup .leaflet-popup-content-wrapper {
+    background-color: rgba(92, 42, 0, 0.9);
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 5px;
+    padding: 0;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+    max-width: 300px;
+}
+
+.custom-popup .leaflet-popup-content {
+    margin: 10;
+    width: 280px !important;  /* Override Leaflet's dynamic width */
+}
+
+.custom-popup .leaflet-popup-tip {
+    background-color: rgba(92, 42, 0, 0.9);
+}
+
+.custom-popup-content {
+    padding: 15px;
+}
+
+.custom-popup-content strong {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.popup-image-container {
+    margin-top: 8px;
+    text-align: center;
+}
+
+.popup-image {
+    width: 100%;
+    border-radius: 3px;
+    margin-bottom: 5px;
+}
+
+.image-attribution {
+    font-size: 10px;
+    text-align: right;
+    opacity: 0.7;
+}
+
+.image-attribution a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.image-loading {
+    color: #ddd;
+    font-style: italic;
+    font-size: 12px;
 }

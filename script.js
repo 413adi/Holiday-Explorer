@@ -17,6 +17,78 @@ const standard = L.tileLayer('https://api.maptiler.com/maps/landscape/{z}/{x}/{y
 // Add this after the map is initialized
 map.options.worldCopyJump = true;
 
+let lastTap = 0;
+let tapTimeout;
+let holdTimeout;
+let isHolding = false;
+let startZoom;
+let startPoint;
+
+// Add touch event listeners to the map container
+const mapContainer = document.getElementById('map');
+
+mapContainer.addEventListener('touchstart', function(e) {
+    const now = new Date().getTime();
+    const timeSince = now - lastTap;
+    
+    // Detect double tap (within 300ms)
+    if (timeSince < 300 && timeSince > 0) {
+        // Clear any existing timeouts
+        clearTimeout(tapTimeout);
+        clearTimeout(holdTimeout);
+        
+        // We have a double tap, now wait to see if it's held
+        const touch = e.touches[0];
+        startPoint = L.point(touch.clientX, touch.clientY);
+        startZoom = map.getZoom();
+        
+        // Set a timeout for hold detection
+        holdTimeout = setTimeout(function() {
+            isHolding = true;
+            // Mark this as the starting point for zoom
+            map.dragging.disable(); // Disable dragging during zoom
+        }, 150); // 150ms hold time to activate zoom
+    } else {
+        // Just a single tap, reset
+        lastTap = now;
+    }
+});
+
+mapContainer.addEventListener('touchmove', function(e) {
+    if (isHolding && e.touches.length === 1) {
+        // We're in zoom mode with hold
+        e.preventDefault(); // Prevent default scrolling
+        
+        const touch = e.touches[0];
+        const point = L.point(touch.clientX, touch.clientY);
+        
+        // Calculate vertical distance moved
+        const yDiff = startPoint.y - point.y;
+        
+        // Calculate zoom level based on movement (adjust sensitivity as needed)
+        const zoomChange = yDiff * 0.01; // Adjust this multiplier for sensitivity
+        const newZoom = Math.min(Math.max(startZoom + zoomChange, map.getMinZoom()), map.getMaxZoom());
+        
+        // Update the map zoom, keeping the starting point fixed
+        map.setView(map.getCenter(), newZoom, { animate: false });
+    }
+});
+
+mapContainer.addEventListener('touchend', function(e) {
+    // Clean up after touch ends
+    clearTimeout(holdTimeout);
+    
+    if (isHolding) {
+        map.dragging.enable(); // Re-enable dragging
+        isHolding = false;
+    }
+    
+    // Set a short timeout to detect single taps
+    tapTimeout = setTimeout(function() {
+        // This was a single tap that ended
+    }, 300);
+});
+
 // Set reasonable bounds to prevent excessive panning
 map.setMaxBounds([
   [-90, -180 * 2],  // Southwest corner, doubled for better behavior
@@ -79,6 +151,9 @@ L.control.zoom({
 
 
 const orsApiKey = '5b3ce3597851110001cf6248f352a6458984400480f70d75375cdbad';
+
+// Add this near the top of your script.js file, with your other API keys
+const unsplashApiKey = 'qG1wKdOuiYxeF9IUuFCwPlW_THoSPxATVImzfuvu2Og'; // Replace with your actual Unsplash API key
 
 // First, replace your isochroneCache declaration
 
@@ -576,26 +651,223 @@ function displayIntersections(isochrones) {
     updateOverlapsList(locationsInOverlap);
 }
 
+// Cache for storing fetched Unsplash images to avoid duplicate API calls
+const imageCache = {};
+
+// Function to fetch an image from Unsplash based on location name
+async function fetchLocationImage(locationName) {
+    try {
+        // Check if we have this image in cache
+        if (imageCache[locationName]) {
+            console.log(`Using cached image for ${locationName}`);
+            return imageCache[locationName];
+        }
+        
+        // Create a search query based on location name
+        // Remove any parentheses and their contents as they often contain non-visual details
+        const searchQuery = locationName
+            .split(',')[0]  // Take just the first part of the name (before any commas)
+            .replace(/\(.*?\)/g, '')  // Remove text in parentheses
+            .trim();
+            
+        console.log(`Fetching Unsplash image for: ${searchQuery}`);
+        
+        // Make the API request to Unsplash
+        const response = await fetch(`https://api.unsplash.com/search/photos?query=${encodeURIComponent(searchQuery)}&per_page=1&orientation=landscape`, {
+            headers: {
+                'Authorization': `Client-ID ${unsplashApiKey}`
+            }
+        });
+        
+        if (!response.ok) {
+            throw new Error(`Unsplash API returned status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        // Check if we got any results
+        if (data.results && data.results.length > 0) {
+            // Use the regular size image (not too large for a popup)
+            const imageUrl = data.results[0].urls.regular;
+            const photographerName = data.results[0].user.name;
+            const photographerUrl = data.results[0].user.links.html;
+            
+            // Store the image info in cache
+            imageCache[locationName] = {
+                url: imageUrl,
+                photographer: photographerName,
+                photographerUrl: photographerUrl
+            };
+            
+            console.log(`Found image for ${locationName}: ${imageUrl}`);
+            return imageCache[locationName];
+        } else {
+            console.log(`No Unsplash image found for ${searchQuery}`);
+            return null;
+        }
+    } catch (error) {
+        console.error(`Error fetching Unsplash image for ${locationName}:`, error);
+        return null;
+    }
+}
+
 // Modify permanent locations display to update overlap list when toggled
+// Modify the function that displays permanent locations to use images
 function displayPermanentLocations() {
     // Only proceed if the checkbox is checked
     if (!$('#show-permanent').prop('checked')) {
         // If not checked, clear all permanent markers from map
         permanentMarkers.forEach(marker => map.removeLayer(marker));
         permanentMarkers = [];
-        
-        // Also update the overlaps list to show the disabled message
-        updateOverlapsList([]);
         return;
     }
     
-    // Rest of the function remains as is...
-    // [Original function code]
+    // Clear any existing permanent markers
+    permanentMarkers.forEach(marker => map.removeLayer(marker));
+    permanentMarkers = [];
     
-    // After displaying markers, trigger an update of the overlaps list
-    // by calling updateCircles
-    updateCircles();
+    // Add markers for permanent locations
+    permanentLocations.forEach(async (location) => {
+        if (!location.lat || !location.lng || !location.name) {
+            console.warn("Invalid permanent location data:", location);
+            return;
+        }
+        
+        const latLng = [location.lat, location.lng];
+        
+        // Create marker with the same styling as before
+        const marker = L.marker(latLng, {
+            icon: L.divIcon({
+                className: 'permanent-marker',
+                html: `<div style="background-color: rgba(116, 11, 11, 0.7); width: 6px; height: 6px; border-radius: 50%; border: 2px solid white;"></div>`,
+                iconSize: [16, 16],
+                iconAnchor: [8, 8]
+            })
+        });
+
+        // Add hover functionality (same as before)
+        marker.on('mouseover', function(e) {
+            // Remove any existing tooltip
+            if (this._tooltip && this._tooltip.parentNode) {
+                this._tooltip.parentNode.removeChild(this._tooltip);
+                this._tooltip = null;
+            }
+            
+            // Create a custom tooltip div
+            const tooltip = L.DomUtil.create('div', 'plain-tooltip');
+            tooltip.innerHTML = location.name;
+            
+            // Get marker's pixel position on screen
+            const pos = map.latLngToLayerPoint(this.getLatLng());
+            
+            // Position tooltip above the marker
+            tooltip.style.position = 'absolute';
+            tooltip.style.left = `${pos.x}px`;
+            tooltip.style.top = `${pos.y - 35}px`;
+            
+            map.getPanes().popupPane.appendChild(tooltip);
+            this._tooltip = tooltip;
+        });
+        
+        marker.on('mouseout', function(e) {
+            setTimeout(() => {
+                if (this._tooltip && this._tooltip.parentNode) {
+                    this._tooltip.parentNode.removeChild(this._tooltip);
+                    this._tooltip = null;
+                }
+            }, 20);
+        });
+        
+        // Add popup with location name, fact, and image
+        // Initially create popup with a loading message
+        let popupContent = `
+            <div class="custom-popup-content">
+                <strong>${location.name}</strong>
+                <p>${location.fact || ''}</p>
+                <div class="popup-image-container">
+                    <p class="image-loading">Loading image...</p>
+                </div>
+            </div>
+        `;
+        
+        marker.bindPopup(popupContent, {
+            className: 'custom-popup',
+            maxWidth: 300 // Larger popup to accommodate images
+        });
+        
+        // Fetch the image when popup is about to open
+        marker.on('popupopen', async function() {
+            // Only fetch if we haven't already
+            if (!marker._imageLoaded) {
+                const imageData = await fetchLocationImage(location.name);
+                
+                if (imageData) {
+                    // Create new popup content with the image
+                    const newPopupContent = `
+                        <div class="custom-popup-content">
+                            <strong>${location.name}</strong>
+                            <p>${location.fact || ''}</p>
+                            <div class="popup-image-container">
+                                <img src="${imageData.url}" alt="${location.name}" class="popup-image">
+                                <div class="image-attribution">
+                                    Photo by <a href="${imageData.photographerUrl}" target="_blank" rel="noopener">${imageData.photographer}</a> on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Update the popup content
+                    marker._popup.setContent(newPopupContent);
+                    marker._imageLoaded = true;
+                } else {
+                    // Update with a message that no image was found
+                    const noImageContent = `
+                        <div class="custom-popup-content">
+                            <strong>${location.name}</strong>
+                            <p>${location.fact || ''}</p>
+                        </div>
+                    `;
+                    marker._popup.setContent(noImageContent);
+                    marker._imageLoaded = true;
+                }
+            }
+        });
+
+        // Add click handler (same as before)
+        marker.on('click', function(e) {
+            // Stop propagation to prevent map click from firing
+            L.DomEvent.stopPropagation(e);
+            
+            // Reset previously selected marker if any
+            if (selectedMarker) {
+                selectedMarker.setIcon(L.divIcon({
+                    className: 'permanent-marker',
+                    html: `<div style="background-color: rgba(93,94,55,0.7); width: 6px; height: 6px; border-radius: 50%; border: 2px solid white;"></div>`,
+                    iconSize: [16, 16],
+                    iconAnchor: [8, 8]
+                }));
+            }
+            
+            // Set this as selected marker
+            selectedMarker = marker;
+            
+            // Change appearance to show it's selected
+            marker.setIcon(L.divIcon({
+                className: 'permanent-marker',
+                html: `<div style="background-color: #5D4037; width: 20px; height: 20px; border-radius: 50%; border: 3px solid white;"></div>`,
+                iconSize: [26, 26],
+                iconAnchor: [13, 13]
+            }));
+            
+            return false;
+        });
+
+        // Add to map
+        marker.addTo(map);
+        permanentMarkers.push(marker);
+    });
 }
+
 
 // Add initialization of the overlaps panel in the main initialization function
 (async function() {
@@ -804,148 +1076,6 @@ async function loadPermanentLocations() {
         showStatus('Error loading permanent locations. Using only user-added locations.', 'error');
         return [];
     }
-}
-
-// Function to display permanent locations as pins
-function displayPermanentLocations() {
-    // Only proceed if the checkbox is checked
-    if (!$('#show-permanent').prop('checked')) {
-        // If not checked, clear all permanent markers from map
-        permanentMarkers.forEach(marker => map.removeLayer(marker));
-        permanentMarkers = [];
-        return;
-    }
-    
-    // Clear any existing permanent markers
-    permanentMarkers.forEach(marker => map.removeLayer(marker));
-    permanentMarkers = [];
-    
-    // Add markers for permanent locations
-    permanentLocations.forEach(location => {
-        if (!location.lat || !location.lng || !location.name) {
-            console.warn("Invalid permanent location data:", location);
-            return;
-        }
-        
-        const latLng = [location.lat, location.lng];
-        
-        // Inside the forEach loop in displayPermanentLocations()
-        // Inside the displayPermanentLocations() function where markers are created
-        const marker = L.marker(latLng, {
-            icon: L.divIcon({
-                className: 'permanent-marker',
-                html: `<div style="background-color: rgba(116, 11, 11, 0.7); width: 6px; height: 6px; border-radius: 50%; border: 2px solid white;"></div>`,
-                iconSize: [16, 16],
-                iconAnchor: [8, 8]
-            })
-        });
-
-        // Add hover functionality
-        // Inside displayPermanentLocations function
-        marker.on('mouseover', function(e) {
-            // Remove any existing tooltip
-            if (this._tooltip && this._tooltip.parentNode) {
-                this._tooltip.parentNode.removeChild(this._tooltip);
-                this._tooltip = null;
-            }
-            
-            // Create a custom tooltip div
-            const tooltip = L.DomUtil.create('div', 'plain-tooltip');
-            tooltip.innerHTML = location.name;
-            
-            // Get marker's pixel position on screen
-            const pos = map.latLngToLayerPoint(this.getLatLng());
-            
-            // Position tooltip above the marker
-            tooltip.style.position = 'absolute';
-            tooltip.style.left = `${pos.x}px`;
-            tooltip.style.top = `${pos.y - 35}px`;
-            
-            // Add to map pane instead of map container
-            // This is crucial - the map's panes move with the map content
-            map.getPanes().popupPane.appendChild(tooltip);
-            
-            // Store reference for removal
-            this._tooltip = tooltip;
-        });
-
-        
-        marker.on('mouseout', function(e) {
-            // Remove custom tooltip with a slight delay to prevent flicker
-            // when moving between markers
-            setTimeout(() => {
-                if (this._tooltip && this._tooltip.parentNode) {
-                    this._tooltip.parentNode.removeChild(this._tooltip);
-                    this._tooltip = null;
-                }
-            }, 20);
-        });
-        
-        // Update tooltip position on map move/zoom
-        map.on('moveend', function() {
-            // Update positions of any visible tooltips
-            permanentMarkers.forEach(marker => {
-                if (marker._tooltip) {
-                    const pos = map.latLngToLayerPoint(marker.getLatLng());
-                    marker._tooltip.style.left = `${pos.x}px`;
-                    marker._tooltip.style.top = `${pos.y - 20}px`;
-                }
-            });
-        });
-        // Add popup with location name
-        //marker.bindPopup(location.name);
-        marker.bindPopup("<strong>" + location.name + "</strong><br>" + location.fact, {
-            className: 'custom-popup'
-        });
-
-        // Add click handler directly to the marker
-        marker.on('click', function(e) {
-            // Stop propagation to prevent map click from firing
-            L.DomEvent.stopPropagation(e);
-            
-            console.log("Marker clicked:", location.name);
-            
-            // Reset previously selected marker if any
-            if (selectedMarker) {
-                selectedMarker.setIcon(L.divIcon({
-                    className: 'permanent-marker',
-                    html: `<div style="background-color: rgba(93,94,55,0.7); width: 6px; height: 6px; border-radius: 50%; border: 2px solid white;"></div>`,
-                    iconSize: [16, 16],
-                    iconAnchor: [8, 8]
-                }));
-            }
-            
-            // Set this as selected marker
-            selectedMarker = marker;
-            
-            // Change appearance to show it's selected
-            marker.setIcon(L.divIcon({
-                className: 'permanent-marker',
-                html: `<div style="background-color: #5D4037; width: 20px; height: 20px; border-radius: 50%; border: 3px solid white;"></div>`,
-                iconSize: [26, 26],
-                iconAnchor: [13, 13]
-            }));
-            
-            // Prevent the map's click handler from firing
-            return false;
-        });
-
-        // Add to map
-        marker.addTo(map);
-        permanentMarkers.push(marker);
-        
-        // Add popup with location name
-        // marker.bindPopup(location.name);
-        marker.bindPopup("<strong>" + location.name + "</strong><br>" + location.fact, {
-            className: 'custom-popup'
-        });
-        
-        // Add to map
-        marker.addTo(map);
-        permanentMarkers.push(marker);
-        
-        console.log("Added permanent location pin:", location.name, location.lat, location.lng);
-    });
 }
 
 // Initialize distance inputs
@@ -1758,57 +1888,209 @@ $(document).ready(function() {
     emailjs.init("dbgYcsV7hHmyqHhsK");
 })();
 
-// Set up recommendation box functionality
 function initRecommendationBox() {
-    // Set up toggle functionality
-    $('.recommendation-toggle').on('click', function() {
-        $('.recommendation-content').toggleClass('collapsed');
-        $(this).find('i').toggleClass('fa-chevron-up fa-chevron-up');
-    });
+    console.log('Initializing recommendation box...');
     
-    // Set up send functionality
-    $('#send-recommendation').on('click', function() {
-        const recommendation = $('#recommendation-text').val().trim();
-        if (!recommendation) {
-            $('#recommendation-status')
-                .removeClass('success')
-                .addClass('error')
-                .text('Please enter a recommendation')
-                .show();
-            return;
-        }
+    // Get all necessary elements
+    const recommendationBox = document.getElementById('recommendation-box');
+    const recommendationContent = document.querySelector('.recommendation-content');
+    const recommendationToggle = document.querySelector('.recommendation-toggle');
+    const sendBtn = document.getElementById('send-recommendation');
+    
+    // Early exit if elements don't exist
+    if (!recommendationBox || !recommendationContent || !recommendationToggle || !sendBtn) {
+        console.error('Missing recommendation box elements');
+        return;
+    }
+    
+    // Remove any existing event listeners (important to prevent duplicates)
+    const newToggle = recommendationToggle.cloneNode(true);
+    recommendationToggle.parentNode.replaceChild(newToggle, recommendationToggle);
+    
+    const recommendationHeader = document.querySelector('.recommendation-header');
+    if (recommendationHeader) {
+        const newHeader = recommendationHeader.cloneNode(true);
+        recommendationHeader.parentNode.replaceChild(newHeader, recommendationHeader);
         
-        sendRecommendation(recommendation);
+        // Get the new references after replacement
+        const updatedToggle = newHeader.querySelector('.recommendation-toggle');
+        
+        // Add click event to ONLY the toggle button (not the whole header)
+        if (updatedToggle) {
+            updatedToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Toggle the content visibility
+                recommendationContent.classList.toggle('collapsed');
+                
+                // Update the icon
+                const icon = this.querySelector('i');
+                if (icon) {
+                    if (recommendationContent.classList.contains('collapsed')) {
+                        // When collapsed, show chevron-up (opposite of original)
+                        icon.className = 'fas fa-chevron-up';
+                    } else {
+                        // When expanded, show chevron-down (opposite of original)
+                        icon.className = 'fas fa-chevron-down';
+                    }
+                }
+                
+                console.log('Toggle clicked: content collapsed =', 
+                    recommendationContent.classList.contains('collapsed'));
+            });
+        }
+    }
+    
+    // Initialize the send button
+    if (sendBtn) {
+        const newSendBtn = sendBtn.cloneNode(true);
+        sendBtn.parentNode.replaceChild(newSendBtn, sendBtn);
+        
+        newSendBtn.addEventListener('click', function() {
+            const recommendationText = document.getElementById('recommendation-text');
+            if (recommendationText) {
+                const recommendation = recommendationText.value.trim();
+                
+                if (!recommendation) {
+                    const status = document.getElementById('recommendation-status');
+                    if (status) {
+                        status.className = 'recommendation-status error';
+                        status.textContent = 'Please enter a recommendation';
+                        status.style.display = 'block';
+                    }
+                    return;
+                }
+                
+                sendRecommendation(recommendation);
+            }
+        });
+    }
+    
+    // Start with content collapsed
+    recommendationContent.classList.add('collapsed');
+    
+    const initialIcon = document.querySelector('.recommendation-toggle i');
+    if (initialIcon) {
+        // Since we start collapsed, set to chevron-up (opposite of original)
+        initialIcon.className = 'fas fa-chevron-up';
+    }
+    
+    console.log('Recommendation box initialized');
+
+    // Mobile-specific enhancements
+    function enhanceMobileExperience() {
+        // Check if we're on a mobile device (approximate check)
+        const isMobile = window.innerWidth <= 768;
+        
+        if (isMobile) {
+            console.log('Mobile device detected, enhancing recommendation box experience');
+            
+            // Get the necessary elements
+            const recommendationBox = document.getElementById('recommendation-box');
+            const recommendationContent = document.querySelector('.recommendation-content');
+            const recommendationToggle = document.querySelector('.recommendation-toggle i');
+            
+            if (!recommendationBox || !recommendationContent || !recommendationToggle) {
+                console.error('Could not find all mobile recommendation elements');
+                return;
+            }
+            
+            // Increase the z-index to ensure the box appears above other elements
+            recommendationBox.style.zIndex = '1100';
+            
+            // Explicitly set the touch-action to allow standard touch behaviors
+            recommendationContent.style.touchAction = 'auto';
+            
+            // Add touch-specific event listeners
+            recommendationBox.addEventListener('touchstart', function(e) {
+                // Prevent this touch from being interpreted as a map action
+                e.stopPropagation();
+            }, { passive: false });
+            
+            // Ensure header is properly sized for touch
+            const recommendationHeader = document.querySelector('.recommendation-header');
+            if (recommendationHeader) {
+                recommendationHeader.style.padding = '15px';
+            }
+            
+            // Force longer transition for more reliable animation on mobile
+            recommendationContent.style.transition = 
+                'max-height 0.5s cubic-bezier(0.4, 0.0, 0.2, 1), padding 0.3s cubic-bezier(0.4, 0.0, 0.2, 1)';
+                
+            console.log('Mobile enhancements applied to recommendation box');
+        }
+    }
+
+    // Call the function to apply mobile enhancements
+    enhanceMobileExperience();
+
+    // Also add a resize handler to adjust if orientation changes
+    window.addEventListener('resize', function() {
+        // Debounce to prevent excessive calls
+        clearTimeout(this.resizeTimeout);
+        this.resizeTimeout = setTimeout(function() {
+            enhanceMobileExperience();
+        }, 250);
     });
 }
 
-// Function to send recommendation via Email.js
+// Send recommendation function
 function sendRecommendation(recommendation) {
-    // Show sending state
-    const button = $('#send-recommendation');
-    const originalText = button.text();
-    button.text('Sending...').prop('disabled', true);
+    const button = document.getElementById('send-recommendation');
+    const originalText = button.textContent;
+    button.textContent = 'Sending...';
+    button.disabled = true;
     
-    // Prepare template parameters
+    const statusElement = document.getElementById('recommendation-status');
+    
     const templateParams = {
-        name: "Map User", // Default name or you could add a name input field
+        name: "Map User",
         recommendation: recommendation,
         timestamp: new Date().toLocaleString()
     };
     
+    console.log('Sending recommendation:', recommendation);
+    
     // Send email using EmailJS
-    // Replace with your Email.js service ID and template ID
     emailjs.send("service_4uho4ea", "template_fa0wk4y", templateParams)
         .then(function(response) {
-            console.log("Email sent successfully!", response);
-            showRecommendationSuccess();
+            console.log("Email sent successfully!", response.status);
+            
+            if (statusElement) {
+                statusElement.className = 'recommendation-status success';
+                statusElement.textContent = 'Thank you! Your recommendation has been sent.';
+                statusElement.style.display = 'block';
+            }
+            
+            // Clear the textarea
+            const textArea = document.getElementById('recommendation-text');
+            if (textArea) {
+                textArea.value = '';
+            }
         })
         .catch(function(error) {
             console.error("Email sending failed:", error);
-            showRecommendationError("Failed to send recommendation. Please try again.");
+            
+            if (statusElement) {
+                statusElement.className = 'recommendation-status error';
+                statusElement.textContent = 'Failed to send recommendation. Please try again.';
+                statusElement.style.display = 'block';
+            }
         })
         .finally(function() {
-            button.text(originalText).prop('disabled', false);
+            // Reset button state
+            if (button) {
+                button.textContent = originalText;
+                button.disabled = false;
+            }
+            
+            // Hide status message after 5 seconds
+            if (statusElement) {
+                setTimeout(() => {
+                    statusElement.style.display = 'none';
+                }, 5000);
+            }
         });
 }
 
@@ -1848,38 +2130,6 @@ $(document).ready(function() {
     initRecommendationBox();
 });
 
-// JavaScript for recommendation box toggle
-document.addEventListener('DOMContentLoaded', function() {
-    // Get recommendation toggle button and box
-    const recommendationToggle = document.querySelector('.recommendation-toggle');
-    const recommendationBox = document.querySelector('.recommendation-box');
-    const recommendationContent = document.querySelector('.recommendation-content');
-    
-    if (recommendationToggle && recommendationBox && recommendationContent) {
-        // Add click event to toggle button
-        recommendationToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            // Toggle the collapsed class on both box and content
-            recommendationBox.classList.toggle('collapsed');
-            recommendationContent.classList.toggle('collapsed');
-        });
-        
-        // Also allow clicking the header to toggle (similar to overlaps container)
-        const recommendationHeader = document.querySelector('.recommendation-header');
-        if (recommendationHeader) {
-            recommendationHeader.addEventListener('click', function(e) {
-                // Don't trigger if clicking the toggle button itself
-                if (e.target !== recommendationToggle && !recommendationToggle.contains(e.target)) {
-                    recommendationBox.classList.toggle('collapsed');
-                    recommendationContent.classList.toggle('collapsed');
-                }
-            });
-        }
-    }
-});
-
 map.on('zoom move viewreset', function() {
     // Update positions of any visible tooltips
     permanentMarkers.forEach(marker => {
@@ -1891,7 +2141,9 @@ map.on('zoom move viewreset', function() {
     });
 });
 
+// Unified DOMContentLoaded event handler
 document.addEventListener('DOMContentLoaded', function() {
+    // ===== CONTROL TOGGLE =====
     // Make sure controls-content has collapsed class
     const controlsContent = document.querySelector('.controls-content');
     if (controlsContent) {
@@ -1904,18 +2156,64 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleButton.classList.add('collapsed');
     }
     
-    // Give the map time to adjust and redraw
-    setTimeout(() => {
-        if (map) {
-            map.invalidateSize();
+    // ===== RECOMMENDATION BOX =====
+    // Get recommendation toggle button and box
+    const recommendationToggle = document.querySelector('.recommendation-toggle');
+    const recommendationBox = document.querySelector('.recommendation-box');
+    const recommendationContent = document.querySelector('.recommendation-content');
+    
+    // For the recommendation box section
+    if (recommendationToggle && recommendationBox && recommendationContent) {
+        // Make sure box starts collapsed
+        recommendationBox.classList.add('collapsed');
+        recommendationContent.classList.add('collapsed');
+        
+        // Update toggle icon to match collapsed state
+        recommendationToggle.querySelector('i').classList.remove('fa-chevron-up');
+        recommendationToggle.querySelector('i').classList.add('fa-chevron-down');
+        
+        // Clear any existing click listeners to prevent conflicts
+        recommendationToggle.removeEventListener('click', null);
+        
+        // Add click event to toggle button
+        recommendationToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Toggle the collapsed class on both box and content
+            recommendationBox.classList.toggle('collapsed');
+            recommendationContent.classList.toggle('collapsed');
+            
+            // Toggle icon appearance
+            this.querySelector('i').classList.toggle('fa-chevron-up');
+            this.querySelector('i').classList.toggle('fa-chevron-down');
+        });
+        
+        // Also allow clicking the header to toggle
+        const recommendationHeader = document.querySelector('.recommendation-header');
+        if (recommendationHeader) {
+            recommendationHeader.addEventListener('click', function(e) {
+                // Don't trigger if clicking the toggle button itself
+                if (e.target !== recommendationToggle && !recommendationToggle.contains(e.target)) {
+                    recommendationBox.classList.toggle('collapsed');
+                    recommendationContent.classList.toggle('collapsed');
+                    recommendationToggle.querySelector('i').classList.toggle('fa-chevron-up');
+                    recommendationToggle.querySelector('i').classList.toggle('fa-chevron-down');
+                }
+            });
         }
-    }, 350);
-});
-
-// Add this to your script.js file
-
-// Modal functionality
-document.addEventListener('DOMContentLoaded', function() {
+        
+        // Initialize EmailJS with your public key
+        emailjs.init("dbgYcsV7hHmyqHhsK");
+        console.log('EmailJS initialized');
+        
+        // Initialize the recommendation box
+        initRecommendationBox();
+        
+        console.log('Document ready, recommendation components initialized');
+    }
+    
+    // ===== MODALS =====
     // Get the modal elements
     const aboutModal = document.getElementById('about-modal');
     const howToUseModal = document.getElementById('how-to-use-modal');
@@ -1987,4 +2285,35 @@ document.addEventListener('DOMContentLoaded', function() {
             closeModals();
         }
     });
+    
+    // ===== POPUP STYLES =====
+    // Add custom popup styles if that function exists
+    if (typeof addPopupStyles === 'function') {
+        addPopupStyles();
+    }
+    
+    // ===== MAP RESIZE =====
+    // Give the map time to adjust and redraw
+    setTimeout(() => {
+        if (typeof map !== 'undefined') {
+            map.invalidateSize();
+        }
+    }, 350);
+
+    // Initialize EmailJS
+    emailjs.init("dbgYcsV7hHmyqHhsK");
+    console.log('EmailJS initialized');
+    
+    // Initialize the recommendation box
+    initRecommendationBox();
 });
+
+// // Make sure this runs exactly once when the page loads
+// document.addEventListener('DOMContentLoaded', function() {
+//     // Initialize EmailJS
+//     emailjs.init("dbgYcsV7hHmyqHhsK");
+//     console.log('EmailJS initialized');
+    
+//     // Initialize the recommendation box
+//     initRecommendationBox();
+// });
