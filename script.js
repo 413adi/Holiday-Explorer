@@ -1816,3 +1816,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+map.on('zoom move viewreset', function() {
+    // Update positions of any visible tooltips
+    permanentMarkers.forEach(marker => {
+        if (marker._tooltip) {
+            const pos = map.latLngToLayerPoint(marker.getLatLng());
+            marker._tooltip.style.left = `${pos.x}px`;
+            marker._tooltip.style.top = `${pos.y - 35}px`;
+        }
+    });
+});
