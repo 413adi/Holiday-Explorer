@@ -304,7 +304,7 @@ h2 {
 }
 
 .controls-header {
-    padding-bottom: 0px;
+    padding-bottom: 10px;
 }
 
 .controls-header h2 {
@@ -568,6 +568,11 @@ h2 {
 
     .toggle-button.collapsed i {
     transform: rotate(180deg);
+    }
+
+    .toggle-button.collapsed {
+        /* Adjust position to sit right below the header when collapsed */
+        transform: translateX(-50%) translateY(-50%);
     }
 
 .controls-content {
@@ -1003,5 +1008,116 @@ h2 {
         top: auto; /* Remove the top positioning */
         bottom: 370px; /* Position it above the overlaps box with some spacing */
         z-index: 1000;
+    }
+}
+
+/* Header buttons styling */
+.header-buttons {
+    display: flex;
+    margin-top: 5px;
+    gap: 10px;
+}
+
+.info-btn {
+    background-color: #8D6E63;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.info-btn:hover {
+    background-color: #5D4037;
+}
+
+/* Modal styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000; /* Higher than other elements */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+}
+
+.modal-content {
+    position: relative;
+    background-color: #F5F3EF;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #8D6E63;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.modal-content h2 {
+    color: #5D4037;
+    margin-top: 0;
+    border-bottom: 2px solid #8D6E63;
+    padding-bottom: 10px;
+}
+
+.modal-content p {
+    line-height: 1.5;
+    color: #3A3028;
+}
+
+.modal-content ol {
+    padding-left: 20px;
+}
+
+.modal-content li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #8D6E63;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: #5D4037;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        margin: 15% auto;
+        max-height: 70vh;
+    }
+    
+    .header-buttons {
+        flex-wrap: wrap;
+    }
+    
+    .info-btn {
+        font-size: 13px;
+        padding: 5px 10px;
     }
 }

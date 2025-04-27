@@ -69,7 +69,7 @@
     "name": "Salar de Uyuni, Bolivia",
     "lat": -20.1338,
     "lng": -67.4891,
-    "fact": "The world's largest salt flat at 10,582 square kilometers. During the rainy season, it creates a perfect mirror effect that makes it impossible to distinguish where the sky ends and the ground begins."
+    "fact": "The world's largest salt flat at 10,582 square kilometers. During the rainy season, it creates a perfect mirror effect that makes it impossible to distinguish where the sky ends and the ground begins. Contains 50-70% of the world's lithium reserves, a vital component in batteries. When covered with a thin layer of water during the rainy season, it creates the world's largest natural mirror."
   },
   {
     "name": "Fernando de Noronha, Brazil",
@@ -118,12 +118,6 @@
     "lat": 25.7989,
     "lng": 110.2056,
     "fact": "No information available for this location."
-  },
-  {
-    "name": "Wulingyuan Scenic Area, China",
-    "lat": 29.3475,
-    "lng": 110.5411,
-    "fact": "The landscape that inspired the floating mountains in the movie 'Avatar.' It contains more than 3,000 quartzite sandstone pillars, many over 200 meters tall."
   },
   {
     "name": "Zhangye Danxia Landform, China",
@@ -376,18 +370,6 @@
     "lat": -22.2006,
     "lng": -67.7692,
     "fact": "A shallow salt lake with waters that appear red due to algae and minerals. It's famous for its large population of rare James's flamingos and sits at an altitude of 4,278 meters above sea level."
-  },
-  {
-    "name": "Salar de Uyuni",
-    "lat": -20.1338,
-    "lng": -67.4891,
-    "fact": "The world's largest salt flat at 10,582 square kilometers. During the rainy season, it creates a perfect mirror effect that makes it impossible to distinguish where the sky ends and the ground begins."
-  },
-  {
-    "name": "Salar de Uyuni salt flats",
-    "lat": -20.1338,
-    "lng": -67.4891,
-    "fact": "Contains 50-70% of the world's lithium reserves, a vital component in batteries. When covered with a thin layer of water during the rainy season, it creates the world's largest natural mirror."
   },
   {
     "name": "Tiwanaku",
@@ -3322,5 +3304,65 @@
     "lat": 63.7713,
     "lng": -18.1718,
     "fact": "Fjaðrárgljúfur Canyon looks like a place carved straight from a fantasy novel. Hidden in the rugged landscapes of southern Iceland, this 2-million-year-old canyon winds like a giant green serpent through volcanic rock, with sheer moss-covered cliffs plunging down to a ribbon-like river below. The walls, sculpted by glaciers and flowing water over millennia, rise dramatically—sometimes up to 100 meters—creating a surreal, almost otherworldly scene. Mist often clings to the edges, giving the canyon a dreamlike quality, as if it’s guarding ancient secrets whispered by the winds that sweep through its narrow corridors."
+  },  
+  {
+    "name": "Maulbronn Monastery",
+    "lat": 49.000666664,
+    "lng": 8.807663436,
+    "fact": "Maulbronn Monastery is a medieval masterpiece nestled in the German countryside, renowned for its well-preserved architecture and serene atmosphere. A UNESCO World Heritage site, this tranquil monastic complex, founded in the 12th century, features stunning Gothic and Romanesque structures, surrounded by peaceful gardens and the remnants of ancient walls—offering a glimpse into monastic life through the ages."
+  },  
+  {
+    "name": "Fuggerei",
+    "lat": 48.3698,
+    "lng": 10.9039,
+    "fact": "Fuggerei in Augsburg, Germany, is the world’s oldest social housing complex, founded in 1521 by the wealthy Fugger family. This unique historic site features charming, well-preserved buildings, where residents pay an annual rent of just one Rheinischer Gulden (about a dollar), symbolizing the family’s commitment to charity. The peaceful, almost village-like atmosphere, with its cobblestone streets and colorful facades, feels like a step back in time to the Renaissance era."
+  },  
+  {
+    "name": "LEGOLAND Günzburg",
+    "lat": 48.4245,
+    "lng": 10.2996,
+    "fact": "LEGOLAND Günzburg is a vibrant theme park in southern Germany where the world of LEGO bricks comes to life in spectacular fashion. With themed zones, thrilling rides, and impressive LEGO models of famous landmarks, it’s a paradise for both kids and adults. From roller coasters to interactive experiences, this colorful park offers endless fun, creativity, and adventure for LEGO enthusiasts of all ages."
+  },
+  {
+    "name": "Socotra Island",
+    "lat": 12.4634,
+    "lng": 53.8237,
+    "fact": "Socotra Island, located off the coast of Yemen, is one of the most isolated and unique places on Earth. Known for its otherworldly landscapes, it’s home to bizarre, alien-like plants such as the Dragon’s Blood Tree and diverse wildlife found nowhere else on the planet. With its stark deserts, pristine beaches, and rugged mountains, Socotra feels like a forgotten world—untouched and full of natural wonders."
+  },
+  {
+    "name": "Pamukkale",
+    "lat": 37.9137,
+    "lng": 29.1187,
+    "fact": "Pamukkale, also known as the “Cotton Castle,” is a natural wonder in southwestern Turkey, famous for its stunning white terraces formed by mineral-rich thermal waters. The cascading pools of milky blue water, created by the deposition of calcium carbonate, give the landscape an ethereal, snow-like appearance. A UNESCO World Heritage site, Pamukkale combines breathtaking beauty with ancient Roman ruins, offering visitors a unique blend of nature and history."
+  },
+  {
+    "name": "Tsingy de Bemaraha",
+    "lat": 18.9200,
+    "lng": 44.7944,
+    "fact": "Tsingy de Bemaraha, a UNESCO World Heritage site in Madagascar, is a dramatic landscape of razor-sharp limestone pinnacles, known as Tsingy, rising from the earth like an ancient stone forest. The maze of towering spires, caves, and deep ravines is home to unique wildlife and offers a surreal, almost otherworldly experience. Trekking through this natural labyrinth is an unforgettable adventure, revealing stunning views and hidden treasures of Madagascar's biodiversity."
+  },
+  {
+    "name": "Plitvice Lakes National Park",
+    "lat": 44.8654,
+    "lng": 15.5820,
+    "fact": "Plitvice Lakes National Park in Croatia is a breathtaking natural wonder, famous for its cascading turquoise lakes and stunning waterfalls surrounded by lush forests. The park’s interconnected water system creates a mesmerizing landscape of vibrant colors, crystal-clear waters, and rich biodiversity. A UNESCO World Heritage site, Plitvice offers visitors a serene escape into nature, with wooden walkways and trails weaving through this pristine, otherworldly paradise."
+  },
+  {
+    "name": "The Wave",
+    "lat": 37.0424,
+    "lng": 112.5122,
+    "fact": "The Wave in Arizona is a mesmerizing sandstone formation known for its undulating curves and vibrant layers of red, orange, and yellow rock. Shaped by wind and water over millions of years, this natural sculpture resembles a frozen wave, making it a photographer’s dream. Located in the Paria Canyon-Vermilion Cliffs Wilderness, The Wave is a stunning, otherworldly landscape, offering a challenging but rewarding hike for adventurous travelers."
+  },
+  {
+    "name": "Landmannalaugar",
+    "lat": 63.9830,
+    "lng": -19.0670,
+    "fact": "Landmannalaugar, located in the heart of Iceland’s highlands, is a stunning geothermal wonderland, known for its colorful rhyolite mountains, vast lava fields, and hot springs. The striking hues of pink, yellow, and green rock formations, combined with moss-covered landscapes, create a surreal, almost alien-like environment. Popular for hiking, Landmannalaugar offers a unique opportunity to explore Iceland’s raw natural beauty, with trails that lead through this otherworldly terrain."
+  },
+  {
+    "name": "Vatnajökull Glacier Caves",
+    "lat": 64.4220,
+    "lng": -16.7902,
+    "fact": "Vatnajökull Glacier Caves in Iceland are an awe-inspiring, icy world hidden beneath Europe’s largest glacier. These crystal-blue ice caves, formed by melting water carving through the glacier, glow with stunning hues of turquoise and deep blue. With their intricate ice formations, they create a magical atmosphere that feels like stepping into a frozen cathedral. Visiting these caves offers an unforgettable experience of nature’s frozen beauty, set against the dramatic landscape of Vatnajökull National Park."
   }
 ]

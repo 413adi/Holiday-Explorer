@@ -1,13 +1,30 @@
-// Initialize map
-const map = L.map('map', {zoomControl: false}).setView([50.0, 10.0], 4);
+// When initializing the map, add the worldCopyJump option
+const map = L.map('map', {
+    zoomControl: false,
+    worldCopyJump: true  // This makes markers "jump" to their visible instance when panning across the date line
+}).setView([50.0, 10.0], 4);
 
-// Define individual tile layers
+// Also ensure all tile layers have the proper wrapping configuration
 const standard = L.tileLayer('https://api.maptiler.com/maps/landscape/{z}/{x}/{y}.png?key=xiA386RVUkjH1twt2rjo', {
     attribution: '&copy; <a href="https://www.maptiler.com/">MapTiler</a>',
     tileSize: 512,
     zoomOffset: -1,
-    opacity: 1
+    opacity: 1,
+    noWrap: false,  // Allow wrapping
+    bounds: [[-90, -180], [90, 180]]  // Set bounds to the whole world
 });
+
+// Add this after the map is initialized
+map.options.worldCopyJump = true;
+
+// Set reasonable bounds to prevent excessive panning
+map.setMaxBounds([
+  [-90, -180 * 2],  // Southwest corner, doubled for better behavior
+  [90, 180 * 2]     // Northeast corner, doubled for better behavior
+]);
+
+// Set a minimum zoom level to prevent zooming out too far
+map.setMinZoom(2);
 
 const satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
@@ -35,7 +52,6 @@ const labelsOnly = L.tileLayer('https://api.maptiler.com/maps/toner/{z}/{x}/{y}.
     zoomOffset: -1,
     opacity: 1
 });
-
 
 // AltTerrain = Satellite + Standard + Labels
 const altTerrain = L.layerGroup([satellite.setOpacity(1),labelsOnly.setOpacity(0.3)]);
@@ -252,6 +268,9 @@ function initOverlapsPanel() {
     overlapsContainer.append(header, listContainer);
     $('body').append(overlapsContainer);
     
+    // Hide by default - will be shown when there are at least 2 locations
+    overlapsContainer.hide();
+    
     return overlapsContainer;
 }
 
@@ -301,10 +320,30 @@ function findLocationsInOverlaps(intersections) {
 
 // Function to update the overlap list display
 function updateOverlapsList(locations) {
+    // Check if we have at least 2 isochrones before showing the overlaps panel
+    const locationInputGroups = $('.location-input-group');
+    const validLocationInputs = [];
+    
+    locationInputGroups.each(function() {
+        const input = $(this).find('.location-input');
+        if (input.data('lat') && input.data('lng') && input.val()) {
+            validLocationInputs.push(input);
+        }
+    });
+    
+    // If we don't have at least 2 valid locations, hide the overlaps container and return
+    if (validLocationInputs.length < 2) {
+        $('.overlaps-container').hide();
+        return;
+    }
+    
     // Make sure we have the container
     if (!overlapsContainer) {
         overlapsContainer = initOverlapsPanel();
     }
+    
+    // Now show the container since we have at least 2 locations
+    $('.overlaps-container').show();
     
     // Get the list container
     const listContainer = $('.overlaps-list');
@@ -324,6 +363,7 @@ function updateOverlapsList(locations) {
         return;
     }
     
+    // Rest of the function remains unchanged...
     // Group locations by intersection
     const groupedLocations = {};
     locations.forEach(loc => {
@@ -418,10 +458,10 @@ function displayIntersections(isochrones) {
         });
     });
     
-    // We need at least 2 isochrones to have an intersection
     if (isochrones.length < 2) {
-        // If no intersections, update the overlaps list to be empty
+        // If no intersections, update the overlaps list to be empty and hide the panel
         updateOverlapsList([]);
+        $('.overlaps-container').hide();
         return;
     }
     
@@ -1680,24 +1720,37 @@ $(window).on('resize', function() {
 });
 // Setup toggle functionality for the controls section
 
-(function setupToggleControls() {
-    // Wrap the content
-    $('.location-inputs, .add-location-btn, .distance-customization, .scroll-indicator').wrapAll('<div class="controls-content"></div>');
+function setupToggleControls() {
+    // Set initial collapsed state for the button and content
+    $('#toggle-controls').addClass('collapsed');
+    $('.controls-content').addClass('collapsed');
     
     // Add click handler for the toggle button
     $('#toggle-controls').on('click', function() {
-        // Toggle button appearance
-        $(this).toggleClass('collapsed');
+        const isCurrentlyCollapsed = $('.controls-content').hasClass('collapsed');
         
-        // Toggle content visibility
-        $('.controls-content').toggleClass('collapsed');
+        if (isCurrentlyCollapsed) {
+            // Expand
+            $(this).removeClass('collapsed');
+            $('.controls-content').removeClass('collapsed');
+        } else {
+            // Collapse
+            $(this).addClass('collapsed');
+            $('.controls-content').addClass('collapsed');
+        }
         
         // Give the map time to adjust and redraw
         setTimeout(() => {
             map.invalidateSize();
         }, 350);
     });
-})();
+}
+
+// Call this function during initialization
+$(document).ready(function() {
+    setupToggleControls();
+    initRecommendationBox();
+});
 
 // Initialize EmailJS
 (function() {
@@ -1834,6 +1887,104 @@ map.on('zoom move viewreset', function() {
             const pos = map.latLngToLayerPoint(marker.getLatLng());
             marker._tooltip.style.left = `${pos.x}px`;
             marker._tooltip.style.top = `${pos.y - 35}px`;
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Make sure controls-content has collapsed class
+    const controlsContent = document.querySelector('.controls-content');
+    if (controlsContent) {
+        controlsContent.classList.add('collapsed');
+    }
+    
+    // Make sure toggle button has collapsed class
+    const toggleButton = document.getElementById('toggle-controls');
+    if (toggleButton) {
+        toggleButton.classList.add('collapsed');
+    }
+    
+    // Give the map time to adjust and redraw
+    setTimeout(() => {
+        if (map) {
+            map.invalidateSize();
+        }
+    }, 350);
+});
+
+// Add this to your script.js file
+
+// Modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the modal elements
+    const aboutModal = document.getElementById('about-modal');
+    const howToUseModal = document.getElementById('how-to-use-modal');
+    
+    // Get the buttons that open the modals
+    const aboutBtn = document.getElementById('about-btn');
+    const howToUseBtn = document.getElementById('how-to-use-btn');
+    
+    // Get the close buttons
+    const closeButtons = document.getElementsByClassName('close-modal');
+    
+    // Function to open the about modal
+    if (aboutBtn) {
+        aboutBtn.addEventListener('click', function() {
+            aboutModal.style.display = 'block';
+            // Pause any map interactions while modal is open
+            if (map) {
+                map.dragging.disable();
+                map.touchZoom.disable();
+                map.doubleClickZoom.disable();
+                map.scrollWheelZoom.disable();
+            }
+        });
+    }
+    
+    // Function to open the how to use modal
+    if (howToUseBtn) {
+        howToUseBtn.addEventListener('click', function() {
+            howToUseModal.style.display = 'block';
+            // Pause any map interactions while modal is open
+            if (map) {
+                map.dragging.disable();
+                map.touchZoom.disable();
+                map.doubleClickZoom.disable();
+                map.scrollWheelZoom.disable();
+            }
+        });
+    }
+    
+    // Function to close any open modal
+    function closeModals() {
+        aboutModal.style.display = 'none';
+        howToUseModal.style.display = 'none';
+        
+        // Re-enable map interactions
+        if (map) {
+            map.dragging.enable();
+            map.touchZoom.enable();
+            map.doubleClickZoom.enable();
+            map.scrollWheelZoom.enable();
+        }
+    }
+    
+    // Close modals when clicking the × button
+    for (let i = 0; i < closeButtons.length; i++) {
+        closeButtons[i].addEventListener('click', closeModals);
+    }
+    
+    // Close modals when clicking outside of the modal content
+    window.addEventListener('click', function(event) {
+        if (event.target === aboutModal || event.target === howToUseModal) {
+            closeModals();
+        }
+    });
+    
+    // Close modals when pressing Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeModals();
         }
     });
 });

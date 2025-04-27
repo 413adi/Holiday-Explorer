@@ -28,57 +28,62 @@
 <body>   
     <div id="map"></div>
     
-    <div class="controls-container">
-        <div class="controls">
-            <div class="controls-header">
-                <h2>Travel Time Explorer</h2>
+    <!-- Modify the controls-content div in your HTML to have the collapsed class by default -->
+
+<div class="controls-container">
+    <div class="controls">
+        <div class="controls-header">
+            <h2>Holiday Explorer</h2>
+        </div>
+        <div class="controls-content collapsed">
+            <p>Search and Add locations</p>
+            <div class="location-inputs" id="location-inputs">
+                <div class="location-input-group">
+                    <input type="text" class="location-input" placeholder="Enter a location (min. 3 characters)">
+                    <select class="radius-dropdown">
+                        <option value="45">45 min</option>
+                        <option value="60" selected>60 min</option>
+                        <option value="90">90 min</option>
+                        <option value="120">120 min</option>
+                        <option value="180">180 min</option>
+                        <option value="240">240 min</option>
+                    </select>
+                    <select class="transport-mode-dropdown">
+                        <option value="driving" selected>Driving</option>
+                        <option value="walking">Walking</option>
+                        <option value="cycling">Cycling</option>
+                    </select>
+                    <div class="dropdown"></div>
+                </div>
             </div>
-            <div class="controls-content">
-                <p>Search and Add locations</p>
-                <div class="location-inputs" id="location-inputs">
-                    <div class="location-input-group">
-                        <input type="text" class="location-input" placeholder="Enter a location (min. 3 characters)">
-                        <select class="radius-dropdown">
-                            <option value="45">45 min</option>
-                            <option value="60" selected>60 min</option>
-                            <option value="90">90 min</option>
-                            <option value="120">120 min</option>
-                            <option value="180">180 min</option>
-                            <option value="240">240 min</option>
-                        </select>
-                        <select class="transport-mode-dropdown">
-                            <option value="driving" selected>Driving</option>
-                            <option value="walking">Walking</option>
-                            <option value="cycling">Cycling</option>
-                        </select>
-                        <div class="dropdown"></div>
+            <div class="header-buttons">
+                <button id="about-btn" class="info-btn">About</button>
+                <button id="how-to-use-btn" class="info-btn">How to Use</button>
+            </div>
+            <button class="add-location-btn">+</button>
+            
+            <div class="distance-customization">            
+                <div class="controls-row">
+                    <div class="show-permanent-toggle">
+                        <input type="checkbox" id="show-permanent" checked>
+                        <label for="show-permanent">Show location recommendations</label>
                     </div>
                 </div>
-                <button class="add-location-btn">+</button>
                 
-                <div class="distance-customization">            
-                    <div class="controls-row">
-                        <div class="show-permanent-toggle">
-                            <input type="checkbox" id="show-permanent" checked>
-                            <label for="show-permanent">Show location recommendations</label>
-                        </div>
+                <div class="status-message" id="status-message"></div>
+            </div>
 
-                    </div>
-                    
-                    <div class="status-message" id="status-message"></div>
-                </div>
-
-                <div class="scroll-indicator">
-                    <span>Scroll for options</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
+            <div class="scroll-indicator">
+                <span>Scroll for options</span>
+                <i class="fas fa-chevron-down"></i>
             </div>
         </div>
+    </div>
 
-        <div class="toggle-button-container">
-            <button id="toggle-controls" class="toggle-button">
-                <i class="fas fa-chevron-up"></i>
-            </button>
+    <div class="toggle-button-container">
+        <button id="toggle-controls" class="toggle-button collapsed">
+            <i class="fas fa-chevron-up"></i>
+        </button>
     </div>
 
     <!-- Recommendation Box -->
@@ -95,5 +100,34 @@
     </div>
     </div>
     <script src="script.js"></script>
+    <!-- Add these modal divs at the end of the body but before the closing body tag -->
+    <div id="about-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>About Holiday Explorer</h2>
+            <p>
+                Holiday Explorer is an interactive travel planning tool that visualizes travel times from multiple locations. 
+                It helps you find overlapping areas that are accessible within specific time frames from different starting points, 
+                making it perfect for planning meetups, finding accommodation, or discovering new places to explore during your holidays.
+            </p>
+        </div>
+    </div>
+
+    <div id="how-to-use-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>How to Use</h2>
+            <ol>
+                <li><strong>Add Starting Locations</strong>: Enter place names in the search box (minimum 3 characters) and select from the dropdown suggestions.</li>
+                <li><strong>Customize Time Ranges</strong>: For each location, set the travel time (45-240 minutes) and transportation method (driving, walking, or cycling).</li>
+                <li><strong>View Travel Zones</strong>: Colored areas on the map show where you can reach within your specified time from each location. Each location has a unique color.</li>
+                <li><strong>Find Overlap Areas</strong>: Orange highlighted areas show where two travel zones overlap, while red areas indicate where all zones overlap - perfect for finding central meeting points.</li>
+                <li><strong>Explore Recommendations</strong>: Enable "Show location recommendations" to discover points of interest within the overlapping areas.</li>
+                <li><strong>Customize Map View</strong>: Switch between different map styles using the layer control in the bottom left corner.</li>
+                <li><strong>Suggest New Features</strong>: Use the "Suggest a Place!" panel to recommend new locations or features you'd like to see.</li>
+            </ol>
+            <p>The collapsible control panel can be toggled open or closed using the round button with the chevron icon, allowing you to maximize your map view while exploring.</p>
+        </div>
+    </div>
 </body>
 </html>
