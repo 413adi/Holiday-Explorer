@@ -3410,7 +3410,7 @@
   {
     "name": "Canary Islands",
     "lat": 28.2916,
-    "lng": 16.6291,
+    "lng": -16.6291,
     "fact": "The Canary Islands, a Spanish archipelago off the coast of Africa, are a world of diverse landscapes—from volcanic peaks and black-sand beaches to lush forests and golden dunes. Each island has its own character, offering endless sunshine, dramatic scenery, and a blend of Spanish, African, and Latin American influences that create a vibrant, unforgettable atmosphere."
   },
   {
@@ -3436,5 +3436,59 @@
     "lat": 59.9311,
     "lng": 30.3609,
     "fact": "Saint Petersburg, Russia’s cultural capital, is a city of elegance and history, where grand palaces, intricate canals, and stunning bridges reflect its imperial past. Known for its artistic heritage, the city boasts world-renowned museums like the Hermitage, neoclassical architecture, and a vibrant arts scene, all set against the backdrop of the Neva River and the mystical white nights of summer."
+  },
+  {
+    "name": "Coober Pedy",
+    "lat": -29.0135,
+    "lng": 134.7544,
+    "fact": "Coober Pedy, deep in the South Australian outback, is one of the world’s most unusual towns—famous for its underground homes, built to escape the desert heat, and for being the opal capital of the world. With lunar-like landscapes, quirky charm, and a frontier spirit, it offers a surreal, off-the-grid adventure unlike anywhere else on Earth."
+  },
+  {
+    "name": "Jotunheimen National Park",
+    "lat": 61.5536,
+    "lng": 8.4842,
+    "fact": "Jotunheimen National Park, known as the Home of the Giants, is Norway’s wild heart—an untamed realm of towering peaks, glacier-carved valleys, and crystal-clear lakes. With over 250 mountains above 1,900 meters, including Northern Europe’s highest, it offers some of Scandinavia’s most dramatic hiking and backcountry adventures in a landscape of mythic grandeur."
+  },
+  {
+    "name": "Umnak Island",
+    "lat": 53.2239,
+    "lng": -168.4322,
+    "fact": "Umnak Island, part of Alaska’s remote Aleutian chain, is a wild, windswept land shaped by volcanoes, tundra, and untamed coastline. Home to dramatic landscapes and ancient Aleut heritage, it's a place where eagles soar, geothermal springs bubble, and nature reigns in raw, rugged beauty far from the modern world."
+  },
+  {
+    "name": "New York",
+    "lat": 40.7128,
+    "lng": -74.0060,
+    "fact": "New York City is a pulse-quickening metropolis where towering skyscrapers, endless energy, and boundless diversity collide. From Central Park to Times Square, Broadway to Brooklyn, it's a city of dreams, reinvention, and stories—each street buzzing with culture, ambition, and that unmistakable electric rhythm of the Big Apple."
+  },
+  {
+    "name": "Ljubljana",
+    "lat": 46.0569,
+    "lng": 14.5058,
+    "fact": "Ljubljana, Slovenia’s charming capital, blends Baroque beauty, Art Nouveau elegance, and a youthful creative energy. With its leafy riverside walks, dragon-adorned bridges, and vibrant café culture, the city feels both cozy and cosmopolitan—an underrated gem where history, art, and relaxed living come together effortlessly."
+  },
+  {
+    "name": "Postojna caves",
+    "lat": 45.7830,
+    "lng": 14.2038,
+    "fact": "Postojna Cave in Slovenia is a breathtaking underground world carved by nature over millions of years. With its vast chambers, dripping stalactites, and a unique train ride through winding tunnels, it feels like stepping into a fantasy realm. Home to the rare olm, or “baby dragon,” this limestone labyrinth is one of Europe’s most fascinating subterranean wonders."
+  },
+  {
+    "name": "Murano",
+    "lat": 45.4590,
+    "lng": 12.3523,
+    "fact": "Murano, a serene island in the Venetian Lagoon, is world-renowned for its centuries-old tradition of glassmaking. Wandering its quiet canals and artisan studios, you’ll find shimmering masterpieces crafted by hand, from delicate chandeliers to vibrant sculptures—each piece a fusion of fire, skill, and Italian artistry."
+  },
+  {
+    "name": "Cape Greco",
+    "lat": 34.9609,
+    "lng": 34.0836,
+    "fact": "Cape Greco, on the southeastern tip of Cyprus, is a rugged coastal gem where turquoise waters meet dramatic limestone cliffs and sea caves. Known for its natural beauty, hiking trails, and legendary sea views, it’s a peaceful escape where myths and Mediterranean light come together in spectacular harmony."
+  },
+  {
+    "name": "Pula",
+    "lat": 44.8666,
+    "lng": 13.8496,
+    "fact": "Pula, a coastal city at the tip of Croatia’s Istrian Peninsula, blends ancient Roman grandeur with Adriatic charm. Its crown jewel, a remarkably preserved Roman amphitheater, stands proudly near lively squares, crystal-clear beaches, and vibrant markets—making Pula a living mosaic of history, culture, and seaside relaxation."
   }
 ]

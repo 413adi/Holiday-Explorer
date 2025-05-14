@@ -506,7 +506,7 @@ function updateOverlapsList(locations) {
                     }));
                     
                     // Open popup
-                    marker.openPopup();
+                    centerPopupOnScreen(marker);
                 }
             });
             
@@ -859,6 +859,8 @@ function displayPermanentLocations() {
                 iconAnchor: [13, 13]
             }));
             
+            centerPopupOnScreen(marker);
+
             return false;
         });
 
@@ -2307,6 +2309,52 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize the recommendation box
     initRecommendationBox();
 });
+
+function centerPopupOnScreen(marker) {
+    // First open the popup
+    marker.openPopup();
+    
+    // Wait a moment for the popup to render
+    setTimeout(() => {
+        const popup = marker._popup;
+        if (popup && popup._container) {
+            // Get the popup's geographical coordinates (where it's anchored)
+            const popupLatLng = popup.getLatLng();
+            
+            // Calculate where we need to move the map center
+            // 1. Get the popup's offset in pixels from its anchor point
+            const anchor = popup.options.offset || L.point(0, 0);
+            
+            // 2. Get the popup height (popup tip points to the marker)
+            const popupHeight = popup._container.offsetHeight;
+            
+            // 3. Calculate where we want the popup to be positioned on screen
+            //    (in the middle of the screen)
+            const targetPoint = L.point(
+                map.getSize().x / 2,  // Center horizontally
+                map.getSize().y / 2   // Center vertically
+            );
+            
+            // 4. Get the current pixel position of the marker
+            const markerPixelPoint = map.latLngToContainerPoint(marker.getLatLng());
+            
+            // 5. Calculate the popup's current center point in pixels
+            // For a typical popup, the anchor is at the bottom center
+            // So we move up by approximately half the height
+            const popupAnchorPixelPoint = markerPixelPoint.add(anchor);
+            const popupCenterPixelPoint = popupAnchorPixelPoint.subtract(L.point(0, popupHeight/2));
+            
+            // 6. Calculate how far we need to move the map to center the popup
+            const moveVector = popupCenterPixelPoint.subtract(targetPoint);
+            
+            // 7. Move the map by this offset to center the popup
+            map.panBy(moveVector, {
+                animate: true,
+                duration: 0.5
+            });
+        }
+    }, 300); // Allow time for popup to render
+}
 
 // // Make sure this runs exactly once when the page loads
 // document.addEventListener('DOMContentLoaded', function() {
